@@ -1,10 +1,12 @@
 import Header from "./ui/Header";
+import { ThemeProvider } from "@mui/styles";
 
 function App() {
   return (
-    <div className="App">
+    <ThemeProvider>
       <Header />
-    </div>
+      Hello!
+    </ThemeProvider>
   );
 }
 
