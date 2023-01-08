@@ -2,6 +2,7 @@ import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import { useScrollTrigger } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -19,8 +20,10 @@ function ElevationScroll(props) {
 export default function Header(props) {
   return (
     <ElevationScroll>
-      <AppBar position="fixed" color="secondary">
-        <Toolbar>Arc Development</Toolbar>
+      <AppBar position="fixed" color="primary">
+        <Toolbar>
+          <Typography variant="h3">Arc Development</Typography>
+        </Toolbar>
       </AppBar>
     </ElevationScroll>
   );
