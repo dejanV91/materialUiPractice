@@ -1,5 +1,6 @@
+import React from "react";
 import Header from "./ui/Header";
-import { ThemeProvider } from "@mui/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import theme from "./ui/Theme";
 
 function App() {
