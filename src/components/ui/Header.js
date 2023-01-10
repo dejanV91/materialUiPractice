@@ -23,17 +23,19 @@ const useStyles = makeStyles((theme) => ({
   toolbarMargin: {
     ...theme.mixins.toolbar,
   },
+  logo: {
+    height: "7em",
+  },
 }));
 
 export default function Header(props) {
   const classes = useStyles();
-
   return (
     <>
       <ElevationScroll>
-        <AppBar position="fixed" color="primary">
-          <Toolbar>
-            <img src={logo} alt="company logo" sizes="large" />
+        <AppBar position="fixed">
+          <Toolbar disableGutters>
+            <img className={classes.logo} src={logo} alt="company logo" />
           </Toolbar>
         </AppBar>
       </ElevationScroll>
