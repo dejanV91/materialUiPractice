@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import { useScrollTrigger } from "@mui/material";
@@ -48,13 +48,24 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header(props) {
   const classes = useStyles();
+  const [value, setValue] = useState(0);
+
+  const handleTabs = (e, value) => {
+    setValue(value);
+  };
+
   return (
-    <>
+    <React.Fragment>
       <ElevationScroll>
         <AppBar position="fixed">
           <Toolbar disableGutters>
             <img className={classes.logo} src={logo} alt="company logo" />
-            <Tabs className={classes.tabContainer}>
+            <Tabs
+              value={value}
+              onChange={handleTabs}
+              sx={{ "& button": { color: "white" } }}
+              className={classes.tabContainer}
+            >
               <Tab className={classes.tab} label="Home"></Tab>
               <Tab className={classes.tab} label="Services"></Tab>
               <Tab className={classes.tab} label="The Revolution"></Tab>
@@ -72,6 +83,6 @@ export default function Header(props) {
         </AppBar>
       </ElevationScroll>
       <div className={classes.toolbarMargin} />
-    </>
+    </React.Fragment>
   );
 }
