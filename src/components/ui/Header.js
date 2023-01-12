@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "50px",
     marginLeft: "50px",
     marginRight: "25px",
+    fontFamily: "Pacifico",
   },
 }));
 
@@ -61,9 +62,9 @@ export default function Header(props) {
               <Tab className={classes.tab} label="Contact Us"></Tab>
             </Tabs>
             <Button
+              className={classes.button}
               variant="contained"
               color="secondary"
-              className={classes.button}
             >
               Free Estimate
             </Button>
