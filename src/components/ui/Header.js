@@ -6,6 +6,7 @@ import { makeStyles } from "@mui/styles";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 import logo from "../../assets/logo.svg";
 
@@ -63,14 +64,39 @@ export default function Header(props) {
             <Tabs
               value={value}
               onChange={handleTabs}
-              sx={{ "& button": { color: "white" } }}
               className={classes.tabContainer}
+              indicatorColor="secondary"
             >
-              <Tab className={classes.tab} label="Home"></Tab>
-              <Tab className={classes.tab} label="Services"></Tab>
-              <Tab className={classes.tab} label="The Revolution"></Tab>
-              <Tab className={classes.tab} label="About Us"></Tab>
-              <Tab className={classes.tab} label="Contact Us"></Tab>
+              <Tab
+                className={classes.tab}
+                label="Home"
+                component={Link}
+                to="/"
+              ></Tab>
+              <Tab
+                className={classes.tab}
+                label="Services"
+                component={Link}
+                to="/services"
+              ></Tab>
+              <Tab
+                className={classes.tab}
+                label="The Revolution"
+                component={Link}
+                to="/revolution"
+              ></Tab>
+              <Tab
+                className={classes.tab}
+                label="About Us"
+                component={Link}
+                to="/aboutus"
+              ></Tab>
+              <Tab
+                className={classes.tab}
+                label="Contact Us"
+                component={Link}
+                to="/contactus"
+              ></Tab>
             </Tabs>
             <Button
               className={classes.button}
