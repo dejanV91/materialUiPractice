@@ -38,6 +38,7 @@ const useStyles = makeStyles()((theme) => ({
   },
   tabContainer: {
     marginLeft: "auto",
+    color: "#ffffff",
   },
   tab: {
     ...theme.typography.tab,
@@ -51,6 +52,18 @@ const useStyles = makeStyles()((theme) => ({
     marginRight: "25px",
     height: "45px",
     fontFamily: "Pacifico",
+  },
+  menu: {
+    color: "#ffffff",
+    backgroundColor: theme.palette.common.blue,
+    borderRadius: "0px",
+  },
+  menuItem: {
+    ...theme.typography.tab,
+    opacity: 0.7,
+    "&:hover": {
+      opacity: 1,
+    },
   },
 }));
 
@@ -152,6 +165,9 @@ export default function Header() {
               id="basic-menu"
               anchorEl={anchorEl}
               open={open}
+              onClose={handleClose}
+              classes={{ paper: classes.menu }}
+              elevation={0}
               MenuListProps={{
                 onMouseLeave: handleClose,
               }}
@@ -163,6 +179,7 @@ export default function Header() {
                 }}
                 component={Link}
                 to="/services"
+                classes={{ root: classes.menuItem }}
               >
                 Services
               </MenuItem>
@@ -173,6 +190,7 @@ export default function Header() {
                 }}
                 component={Link}
                 to="/customs"
+                classes={{ root: classes.menuItem }}
               >
                 Customs software
               </MenuItem>
@@ -183,6 +201,7 @@ export default function Header() {
                 }}
                 component={Link}
                 to="/mobile"
+                classes={{ root: classes.menuItem }}
               >
                 Mobile apps
               </MenuItem>
@@ -193,6 +212,7 @@ export default function Header() {
                 }}
                 component={Link}
                 to="/websites"
+                classes={{ root: classes.menuItem }}
               >
                 Websites
               </MenuItem>
