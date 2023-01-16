@@ -7,6 +7,8 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 import logo from "../../assets/logo.svg";
 
@@ -55,6 +57,8 @@ const useStyles = makeStyles()((theme) => ({
 export default function Header() {
   const { classes } = useStyles();
   const [value, setValue] = useState(0);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
 
   useEffect(() => {
     if (window.location.pathname === "/" && value !== 0) {
@@ -74,6 +78,13 @@ export default function Header() {
 
   const handleTabs = (e, value) => {
     setValue(value);
+  };
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   return (
