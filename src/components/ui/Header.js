@@ -117,6 +117,10 @@ export default function Header() {
                 label="Services"
                 component={Link}
                 to="/services"
+                aria-controls={open ? "basic-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                onMouseEnter={handleClick}
               ></Tab>
               <Tab
                 className={classes.tab}
@@ -144,6 +148,18 @@ export default function Header() {
             >
               Free Estimate
             </Button>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              MenuListProps={{
+                onMouseLeave: handleClose,
+              }}
+            >
+              <MenuItem onClick={handleClose}>Profile</MenuItem>
+              <MenuItem onClick={handleClose}>My account</MenuItem>
+              <MenuItem onClick={handleClose}>Logout</MenuItem>
+            </Menu>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
