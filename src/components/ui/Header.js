@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import { useScrollTrigger } from "@mui/material";
+import { IconButton, useScrollTrigger } from "@mui/material";
 import { makeStyles } from "tss-react/mui";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -11,6 +11,8 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
+import MenuIcon from "@mui/icons-material/Menu";
 
 import logo from "../../assets/logo.svg";
 
@@ -71,6 +73,17 @@ const useStyles = makeStyles()((theme) => ({
       opacity: 1,
     },
   },
+  drawerIconContainer: {
+    marginLeft: "auto",
+    marginRight: "20px",
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
+  },
+  drawIcon: {
+    height: "50px",
+    width: "50px",
+  },
 }));
 
 export default function Header() {
@@ -81,6 +94,10 @@ export default function Header() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const open = Boolean(anchorEl);
+  const iOS =
+    typeof navigator !== "undefined" &&
+    /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   useEffect(() => {
     if (window.location.pathname === "/" && value !== 0) {
@@ -154,8 +171,8 @@ export default function Header() {
     }
   }, [value]);
 
-  const handleTabs = (e, value) => {
-    setValue(value);
+  const handleTabs = (e, newValue) => {
+    setValue(newValue);
   };
 
   const handleMenuItemClick = (e, i) => {
@@ -245,6 +262,27 @@ export default function Header() {
     </React.Fragment>
   );
 
+  const drawer = (
+    <React.Fragment>
+      <SwipeableDrawer
+        disableBackdropTransition={!iOS}
+        disableDiscovery={iOS}
+        open={openDrawer}
+        onClose={() => setOpenDrawer(false)}
+        onOpen={() => setOpenDrawer(true)}
+      >
+        Example
+      </SwipeableDrawer>
+      <IconButton
+        className={classes.drawerIconContainer}
+        onClick={() => setOpenDrawer(!openDrawer)}
+        disableRipple
+      >
+        <MenuIcon className={classes.drawIcon} />
+      </IconButton>
+    </React.Fragment>
+  );
+
   return (
     <React.Fragment>
       <ElevationScroll>
@@ -258,7 +296,7 @@ export default function Header() {
             >
               <img className={classes.logo} src={logo} alt="company logo" />
             </Button>
-            {matches ? null : tabs}
+            {matches ? drawer : tabs}
           </Toolbar>
         </AppBar>
       </ElevationScroll>
