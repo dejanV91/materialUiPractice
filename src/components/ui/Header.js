@@ -9,6 +9,8 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 import logo from "../../assets/logo.svg";
 
@@ -29,9 +31,13 @@ const useStyles = makeStyles()((theme) => ({
   toolbarMargin: {
     ...theme.mixins.toolbar,
     marginBottom: "3em",
+    [theme.breakpoints.down("lg")]: { marginBottom: "2em" },
+    [theme.breakpoints.down("xs")]: { marginBottom: "1.5em" },
   },
   logo: {
-    height: "7em",
+    height: "8em",
+    [theme.breakpoints.down("lg")]: { height: "7em" },
+    [theme.breakpoints.down("xs")]: { height: "5.5em" },
   },
   logoContainer: {
     padding: 0,
@@ -43,7 +49,7 @@ const useStyles = makeStyles()((theme) => ({
   tab: {
     ...theme.typography.tab,
     minWidth: 10,
-    marginLeft: "25px",
+    marginLeft: "15px",
     color: "#ffffff",
   },
   button: {
@@ -69,6 +75,8 @@ const useStyles = makeStyles()((theme) => ({
 
 export default function Header() {
   const { classes } = useStyles();
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("lg"));
   const [value, setValue] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -169,6 +177,74 @@ export default function Header() {
     { name: "Websites", link: "/websites" },
   ];
 
+  const tabs = (
+    <React.Fragment>
+      <Tabs
+        value={value}
+        onChange={handleTabs}
+        className={classes.tabContainer}
+        indicatorColor="secondary"
+      >
+        <Tab className={classes.tab} label="Home" component={Link} to="/"></Tab>
+        <Tab
+          className={classes.tab}
+          label="Services"
+          component={Link}
+          to="/services"
+          aria-controls={open ? "basic-menu" : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? "true" : undefined}
+          onMouseEnter={handleClick}
+        ></Tab>
+        <Tab
+          className={classes.tab}
+          label="The Revolution"
+          component={Link}
+          to="/revolution"
+        ></Tab>
+        <Tab
+          className={classes.tab}
+          label="About Us"
+          component={Link}
+          to="/aboutus"
+        ></Tab>
+        <Tab
+          className={classes.tab}
+          label="Contact Us"
+          component={Link}
+          to="/contactus"
+        ></Tab>
+      </Tabs>
+      <Button className={classes.button} variant="contained" color="secondary">
+        Free Estimate
+      </Button>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        classes={{ paper: classes.menu }}
+        elevation={0}
+        MenuListProps={{
+          onMouseLeave: handleClose,
+        }}
+      >
+        {menuOptions.map((option, i) => (
+          <MenuItem
+            component={Link}
+            to={option.link}
+            key={i}
+            classes={{ root: classes.menuItem }}
+            onClick={(e) => handleMenuItemClick(e, i)}
+            selected={i === selectedIndex && value === 1}
+          >
+            {option.name}
+          </MenuItem>
+        ))}
+      </Menu>
+    </React.Fragment>
+  );
+
   return (
     <React.Fragment>
       <ElevationScroll>
@@ -182,78 +258,7 @@ export default function Header() {
             >
               <img className={classes.logo} src={logo} alt="company logo" />
             </Button>
-            <Tabs
-              value={value}
-              onChange={handleTabs}
-              className={classes.tabContainer}
-              indicatorColor="secondary"
-            >
-              <Tab
-                className={classes.tab}
-                label="Home"
-                component={Link}
-                to="/"
-              ></Tab>
-              <Tab
-                className={classes.tab}
-                label="Services"
-                component={Link}
-                to="/services"
-                aria-controls={open ? "basic-menu" : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? "true" : undefined}
-                onMouseEnter={handleClick}
-              ></Tab>
-              <Tab
-                className={classes.tab}
-                label="The Revolution"
-                component={Link}
-                to="/revolution"
-              ></Tab>
-              <Tab
-                className={classes.tab}
-                label="About Us"
-                component={Link}
-                to="/aboutus"
-              ></Tab>
-              <Tab
-                className={classes.tab}
-                label="Contact Us"
-                component={Link}
-                to="/contactus"
-              ></Tab>
-            </Tabs>
-            <Button
-              className={classes.button}
-              variant="contained"
-              color="secondary"
-            >
-              Free Estimate
-            </Button>
-            <Menu
-              id="basic-menu"
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              classes={{ paper: classes.menu }}
-              elevation={0}
-              MenuListProps={{
-                onMouseLeave: handleClose,
-              }}
-            >
-              {menuOptions.map((option, i) => (
-                <MenuItem
-                  component={Link}
-                  to={option.link}
-                  key={i}
-                  classes={{ root: classes.menuItem }}
-                  onClick={(e) => handleMenuItemClick(e, i)}
-                  selected={i === selectedIndex && value === 1}
-                >
-                  {option.name}
-                </MenuItem>
-              ))}
-            </Menu>
+            {matches ? null : tabs}
           </Toolbar>
         </AppBar>
       </ElevationScroll>
