@@ -88,6 +88,62 @@ export default function Header() {
     } else if (window.location.pathname === "/estimate" && value !== 5) {
       setValue(5);
     }
+
+    switch (window.location.pathname) {
+      case "/":
+        if (value !== 0) {
+          setValue(0);
+        }
+        break;
+      case "/services":
+        if (value !== 1) {
+          setValue(1);
+          setSelectedIndex(0);
+        }
+        break;
+      case "/customs":
+        if (value !== 1) {
+          setValue(1);
+          setSelectedIndex(1);
+        }
+        break;
+      case "/mobile":
+        if (value !== 1) {
+          setValue(1);
+          setSelectedIndex(2);
+        }
+        break;
+      case "/websites":
+        if (value !== 1) {
+          setValue(1);
+          setSelectedIndex(3);
+        }
+        break;
+      case "/revolution":
+        if (value !== 2) {
+          setValue(2);
+        }
+        break;
+      case "/aboutus":
+        if (value !== 3) {
+          setValue(3);
+        }
+        break;
+      case "/contactus":
+        if (value !== 4) {
+          setValue(4);
+        }
+        break;
+      case "/estimate": {
+        if (value !== 5) {
+          setValue(5);
+        }
+        break;
+      }
+
+      default:
+        break;
+    }
   }, [value]);
 
   const handleTabs = (e, value) => {
