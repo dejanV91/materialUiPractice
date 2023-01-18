@@ -102,6 +102,9 @@ const useStyles = makeStyles()((theme) => ({
   drawerItemSelected: {
     opacity: 1,
   },
+  appbar: {
+    zIndex: theme.zIndex.modal + 1,
+  },
 }));
 
 export default function Header() {
@@ -250,6 +253,7 @@ export default function Header() {
         MenuListProps={{
           onMouseLeave: handleClose,
         }}
+        keepMounted
       >
         {menuOptions.map((option, i) => (
           <MenuItem
@@ -277,6 +281,7 @@ export default function Header() {
         onOpen={() => setOpenDrawer(true)}
         classes={{ paper: classes.drawer }}
       >
+        <div className={classes.toolbarMargin}></div>
         <List disablePadding>
           <ListItem
             onClick={() => {
@@ -426,7 +431,7 @@ export default function Header() {
   return (
     <React.Fragment>
       <ElevationScroll>
-        <AppBar position="fixed">
+        <AppBar position="fixed" className={classes.appbar}>
           <Toolbar disableGutters>
             <Button
               component={Link}
