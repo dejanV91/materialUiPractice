@@ -11,7 +11,10 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<div>Home</div>}></Route>
+          <Route
+            path="/"
+            element={<div style={{ height: "2000px" }}>Home</div>}
+          ></Route>
           <Route path="/services" element={<div>Services</div>}></Route>
           <Route path="/revolution" element={<div>The Revolution</div>}></Route>
           <Route path="/aboutus" element={<div>About Us</div>}></Route>
