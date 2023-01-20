@@ -107,13 +107,11 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-export default function Header() {
+export default function Header(props) {
   const { classes } = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("lg"));
-  const [value, setValue] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState(0);
   const open = Boolean(anchorEl);
   const iOS =
     typeof navigator !== "undefined" &&
@@ -123,52 +121,52 @@ export default function Header() {
   useEffect(() => {
     switch (window.location.pathname) {
       case "/":
-        if (value !== 0) {
-          setValue(0);
+        if (props.value !== 0) {
+          props.setValue(0);
         }
         break;
       case "/services":
-        if (value !== 1) {
-          setValue(1);
-          setSelectedIndex(0);
+        if (props.value !== 1) {
+          props.setValue(1);
+          props.setSelectedIndex(0);
         }
         break;
       case "/customs":
-        if (value !== 1) {
-          setValue(1);
-          setSelectedIndex(1);
+        if (props.value !== 1) {
+          props.setValue(1);
+          props.setSelectedIndex(1);
         }
         break;
       case "/mobile":
-        if (value !== 1) {
-          setValue(1);
-          setSelectedIndex(2);
+        if (props.value !== 1) {
+          props.setValue(1);
+          props.setSelectedIndex(2);
         }
         break;
       case "/websites":
-        if (value !== 1) {
-          setValue(1);
-          setSelectedIndex(3);
+        if (props.value !== 1) {
+          props.setValue(1);
+          props.setSelectedIndex(3);
         }
         break;
       case "/revolution":
-        if (value !== 2) {
-          setValue(2);
+        if (props.value !== 2) {
+          props.setValue(2);
         }
         break;
       case "/aboutus":
-        if (value !== 3) {
-          setValue(3);
+        if (props.value !== 3) {
+          props.setValue(3);
         }
         break;
       case "/contactus":
-        if (value !== 4) {
-          setValue(4);
+        if (props.value !== 4) {
+          props.setValue(4);
         }
         break;
       case "/estimate": {
-        if (value !== 5) {
-          setValue(5);
+        if (props.value !== 5) {
+          props.setValue(5);
         }
         break;
       }
@@ -176,15 +174,15 @@ export default function Header() {
       default:
         break;
     }
-  }, [value]);
+  }, [props.value, props]);
 
   const handleTabs = (e, newValue) => {
-    setValue(newValue);
+    props.setValue(newValue);
   };
 
   const handleMenuItemClick = (e, i) => {
     setAnchorEl(null);
-    setSelectedIndex(i);
+    props.setSelectedIndex(i);
   };
 
   const handleClick = (event) => {
@@ -204,7 +202,7 @@ export default function Header() {
   const tabs = (
     <React.Fragment>
       <Tabs
-        value={value}
+        value={props.value}
         onChange={handleTabs}
         textColor="inherit"
         className={classes.tabContainer}
@@ -262,7 +260,7 @@ export default function Header() {
             key={i}
             classes={{ root: classes.menuItem }}
             onClick={(e) => handleMenuItemClick(e, i)}
-            selected={i === selectedIndex && value === 1}
+            selected={i === props.selectedIndex && props.value === 1}
           >
             {option.name}
           </MenuItem>
@@ -286,17 +284,17 @@ export default function Header() {
           <ListItem
             onClick={() => {
               setOpenDrawer(false);
-              setValue(0);
+              props.setValue(0);
             }}
             divider
             button
             component={Link}
             to="/"
-            selected={value === 0}
+            selected={props.value === 0}
           >
             <ListItemText
               className={
-                value === 0
+                props.value === 0
                   ? [classes.drawerItem, classes.drawerItemSelected]
                   : classes.drawerItem
               }
@@ -308,17 +306,17 @@ export default function Header() {
           <ListItem
             onClick={() => {
               setOpenDrawer(false);
-              setValue(1);
+              props.setValue(1);
             }}
             divider
             button
             component={Link}
             to="/services"
-            selected={value === 1}
+            selected={props.value === 1}
           >
             <ListItemText
               className={
-                value === 1
+                props.value === 1
                   ? [classes.drawerItem, classes.drawerItemSelected]
                   : classes.drawerItem
               }
@@ -330,17 +328,17 @@ export default function Header() {
           <ListItem
             onClick={() => {
               setOpenDrawer(false);
-              setValue(2);
+              props.setValue(2);
             }}
             divider
             button
             component={Link}
             to="/revolution"
-            selected={value === 2}
+            selected={props.value === 2}
           >
             <ListItemText
               className={
-                value === 2
+                props.value === 2
                   ? [classes.drawerItem, classes.drawerItemSelected]
                   : classes.drawerItem
               }
@@ -352,17 +350,17 @@ export default function Header() {
           <ListItem
             onClick={() => {
               setOpenDrawer(false);
-              setValue(3);
+              props.setValue(3);
             }}
             divider
             button
             component={Link}
             to="/aboutus"
-            selected={value === 3}
+            selected={props.value === 3}
           >
             <ListItemText
               className={
-                value === 3
+                props.value === 3
                   ? [classes.drawerItem, classes.drawerItemSelected]
                   : classes.drawerItem
               }
@@ -374,17 +372,17 @@ export default function Header() {
           <ListItem
             onClick={() => {
               setOpenDrawer(false);
-              setValue(4);
+              props.setValue(4);
             }}
             divider
             button
             component={Link}
             to="/contactus"
-            selected={value === 4}
+            selected={props.value === 4}
           >
             <ListItemText
               className={
-                value === 4
+                props.value === 4
                   ? [classes.drawerItem, classes.drawerItemSelected]
                   : classes.drawerItem
               }
@@ -396,18 +394,18 @@ export default function Header() {
           <ListItem
             onClick={() => {
               setOpenDrawer(false);
-              setValue(5);
+              props.setValue(5);
             }}
             divider
             button
             className={classes.drawerItemEstimate}
             component={Link}
             to="/estimate"
-            selected={value === 5}
+            selected={props.value === 5}
           >
             <ListItemText
               className={
-                value === 5
+                props.value === 5
                   ? [classes.drawerItem, classes.drawerItemSelected]
                   : classes.drawerItem
               }
@@ -437,7 +435,7 @@ export default function Header() {
               component={Link}
               to="/"
               className={classes.logoContainer}
-              onClick={() => setValue(0)}
+              onClick={() => props.setValue(0)}
             >
               <img className={classes.logo} src={logo} alt="company logo" />
             </Button>
