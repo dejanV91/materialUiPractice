@@ -20,7 +20,10 @@ function App() {
           setSelectedIndex={setSelectedIndex}
         />
         <Routes>
-          <Route path="/" element={LandingPage}></Route>
+          <Route
+            path="/"
+            element={<LandingPage style={{ height: "2000px" }} />}
+          ></Route>
           <Route path="/services" element={<div>Services</div>}></Route>
           <Route path="/revolution" element={<div>The Revolution</div>}></Route>
           <Route path="/aboutus" element={<div>About Us</div>}></Route>

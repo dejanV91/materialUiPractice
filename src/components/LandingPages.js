@@ -3,10 +3,18 @@ import Lottie from "react-lottie";
 import { makeStyles } from "tss-react/mui";
 import Grid from "@mui/material/Grid";
 import { Button } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 import animationData from "../animations/landinganimation/data";
 
-const useStyle = makeStyles()((theme) => ({}));
+const useStyle = makeStyles()((theme) => ({
+  animation: {
+    maxWidth: "35em",
+    minWidth: "30em",
+    marginTop: "2em",
+    marginLeft: "10%",
+  },
+}));
 
 export default function LandingPage() {
   const classes = useStyle();
@@ -24,21 +32,33 @@ export default function LandingPage() {
     <React.Fragment>
       <Grid container direction={"column"}>
         <Grid item>
-          <Grid container direction="row">
-            <Grid item>
-              <div>
+          <Grid
+            container
+            justifyContent="flex-end"
+            alignItems="center"
+            direction="row"
+          >
+            <Grid sm item>
+              <Typography variant="h2" align="center">
                 Bringing West Coast Technology <br />
                 to the Midwest
-              </div>
+              </Typography>
               <Grid container>
                 <Grid item>
                   <Button variant="contained">Free Estimate</Button>
                 </Grid>
+                <Grid item>
+                  <Button variant="outlined">Learn More</Button>
+                </Grid>
               </Grid>
-              {/* <Lottie options={defaultOptions} height={"100%"} width={"100%"} /> */}
             </Grid>
-            <Grid item>
-              <div>Dejan Vukoicic</div>
+            <Grid sm item>
+              <Lottie
+                className={classes.animation}
+                options={defaultOptions}
+                height={"100%"}
+                width={"100%"}
+              />
             </Grid>
           </Grid>
         </Grid>
