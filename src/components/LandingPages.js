@@ -9,15 +9,15 @@ import animationData from "../animations/landinganimation/data";
 
 const useStyle = makeStyles()((theme) => ({
   animation: {
-    maxWidth: "35em",
-    minWidth: "30em",
+    maxWidth: "50em",
+    minWidth: "21em",
     marginTop: "2em",
     marginLeft: "10%",
   },
 }));
 
 export default function LandingPage() {
-  const classes = useStyle();
+  const { classes } = useStyle();
 
   const defaultOptions = {
     loop: true,
@@ -52,13 +52,8 @@ export default function LandingPage() {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid sm item>
-              <Lottie
-                className={classes.animation}
-                options={defaultOptions}
-                height={"100%"}
-                width={"100%"}
-              />
+            <Grid sm item className={classes.animation}>
+              <Lottie options={defaultOptions} height={"100%"} width={"100%"} />
             </Grid>
           </Grid>
         </Grid>
