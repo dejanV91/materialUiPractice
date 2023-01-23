@@ -14,6 +14,34 @@ const useStyle = makeStyles()((theme) => ({
     marginTop: "2em",
     marginLeft: "10%",
   },
+  estimateButton: {
+    ...theme.typography.estimate,
+    backgroundColor: theme.palette.common.orange,
+    borderRadius: 50,
+    height: 45,
+    width: 145,
+    marginRight: 40,
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.light,
+    },
+  },
+  buttonContainer: {
+    marginTop: "1em",
+  },
+  learnButtonHero: {
+    borderColor: theme.palette.common.blue,
+    borderWidth: 2,
+    textTransform: "none",
+    borderRadius: 50,
+    fontFamily: "Roboto",
+    fontWeight: "bold",
+    fontSize: "0.9rem",
+    height: 45,
+    width: 145,
+  },
+  mainContainer: {
+    marginTop: "5em",
+  },
 }));
 
 export default function LandingPage() {
@@ -30,7 +58,7 @@ export default function LandingPage() {
 
   return (
     <React.Fragment>
-      <Grid container direction={"column"}>
+      <Grid container direction={"column"} className={classes.mainContainer}>
         <Grid item>
           <Grid
             container
@@ -43,12 +71,26 @@ export default function LandingPage() {
                 Bringing West Coast Technology <br />
                 to the Midwest
               </Typography>
-              <Grid container>
+              <Grid
+                container
+                justifyContent="center"
+                className={classes.buttonContainer}
+              >
                 <Grid item>
-                  <Button variant="contained">Free Estimate</Button>
+                  <Button
+                    className={classes.estimateButton}
+                    variant="contained"
+                  >
+                    Free Estimate
+                  </Button>
                 </Grid>
                 <Grid item>
-                  <Button variant="outlined">Learn More</Button>
+                  <Button
+                    className={classes.learnButtonHero}
+                    variant="outlined"
+                  >
+                    Learn More
+                  </Button>
                 </Grid>
               </Grid>
             </Grid>
