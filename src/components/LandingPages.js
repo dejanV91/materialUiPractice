@@ -9,10 +9,15 @@ import animationData from "../animations/landinganimation/data";
 
 const useStyle = makeStyles()((theme) => ({
   animation: {
-    maxWidth: "50em",
     minWidth: "21em",
     marginTop: "2em",
     marginLeft: "10%",
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "30em",
+    },
+    [theme.breakpoints.up("xl")]: {
+      maxWidth: "50em",
+    },
   },
   estimateButton: {
     ...theme.typography.estimate,
@@ -40,7 +45,13 @@ const useStyle = makeStyles()((theme) => ({
     width: 145,
   },
   mainContainer: {
-    marginTop: "5em",
+    maxHeight: "auto",
+    [theme.breakpoints.down("md")]: { marginTop: "3em" },
+    [theme.breakpoints.down("sm")]: { marginTop: "2em" },
+  },
+  heroTextContainer: {
+    minWidth: "21.5em",
+    marginLeft: "1em",
   },
 }));
 
@@ -66,7 +77,7 @@ export default function LandingPage() {
             alignItems="center"
             direction="row"
           >
-            <Grid sm item>
+            <Grid sm item className={classes.heroTextContainer}>
               <Typography variant="h2" align="center">
                 Bringing West Coast Technology <br />
                 to the Midwest
