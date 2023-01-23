@@ -71,6 +71,7 @@ export default function LandingPage() {
     <React.Fragment>
       <Grid container direction={"column"} className={classes.mainContainer}>
         <Grid item>
+          {/*----Hero Block ----*/}
           <Grid
             container
             justifyContent="flex-end"
@@ -107,6 +108,21 @@ export default function LandingPage() {
             </Grid>
             <Grid sm item className={classes.animation}>
               <Lottie options={defaultOptions} height={"100%"} width={"100%"} />
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item>
+          {/*----Services Block ----*/}
+          <Grid container direction="row">
+            <Grid item>
+              <Typography variant="h4">Custom Software Development</Typography>
+              <Typography variant="subtitle1">
+                Save Energy. Save Time. Save Monay
+              </Typography>
+              <Typography variant="subtitle1">
+                Complete digital solutions, from investigation to{" "}
+                <span>celebration</span>
+              </Typography>
             </Grid>
           </Grid>
         </Grid>
