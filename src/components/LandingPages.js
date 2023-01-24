@@ -1,11 +1,13 @@
 import React from "react";
 import Lottie from "react-lottie";
 import { makeStyles } from "tss-react/mui";
+import { useTheme } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import { Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import customSoftwareIcon from "../assets/Custom Software Icon.svg";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
+import customSoftwareIcon from "../assets/Custom Software Icon.svg";
 import animationData from "../animations/landinganimation/data";
 
 const useStyle = makeStyles()((theme) => ({
@@ -45,6 +47,7 @@ const useStyle = makeStyles()((theme) => ({
     fontSize: "0.7rem",
     height: 35,
     padding: 5,
+    [theme.breakpoints.down("md")]: { marginBottom: "2em" },
   },
   mainContainer: {
     maxHeight: "auto",
@@ -62,10 +65,24 @@ const useStyle = makeStyles()((theme) => ({
   subtitle: {
     marginBottom: "1em",
   },
+  icon: {
+    marginLeft: "2em",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: 0,
+    },
+  },
+  serviceContainer: {
+    marginTop: "12em",
+    [theme.breakpoints.down("md")]: {
+      padding: 25,
+    },
+  },
 }));
 
 export default function LandingPage() {
   const { classes } = useStyle();
+  const theme = useTheme();
+  const matchesSM = useMediaQuery(theme.breakpoints.down("md"));
 
   const defaultOptions = {
     loop: true,
@@ -122,8 +139,19 @@ export default function LandingPage() {
         </Grid>
         <Grid item>
           {/*----Services Block ----*/}
-          <Grid container direction="row">
-            <Grid item>
+          <Grid
+            container
+            justifyContent={matchesSM ? "center" : undefined}
+            direction="row"
+            className={classes.serviceContainer}
+          >
+            <Grid
+              item
+              style={{
+                marginLeft: matchesSM ? 0 : "5em",
+                textAlign: matchesSM ? "center" : undefined,
+              }}
+            >
               <Typography variant="h4">Custom Software Development</Typography>
               <Typography variant="subtitle1" className={classes.subtitle}>
                 Save Energy. Save Time. Save Monay
@@ -137,7 +165,11 @@ export default function LandingPage() {
               </Button>
             </Grid>
             <Grid item>
-              <img src={customSoftwareIcon} alt="Custom Software icon" />
+              <img
+                className={classes.icon}
+                src={customSoftwareIcon}
+                alt="Custom Software icon"
+              />
             </Grid>
           </Grid>
         </Grid>
