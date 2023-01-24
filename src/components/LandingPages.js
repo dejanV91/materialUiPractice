@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import customSoftwareIcon from "../assets/Custom Software Icon.svg";
+import mobileAppsIcon from "../assets/mobileIcon.svg";
 import animationData from "../animations/landinganimation/data";
 
 const useStyle = makeStyles()((theme) => ({
@@ -138,7 +139,7 @@ export default function LandingPage() {
           </Grid>
         </Grid>
         <Grid item>
-          {/*----Services Block ----*/}
+          {/*----Custom Software   Block ----*/}
           <Grid
             container
             justifyContent={matchesSM ? "center" : undefined}
@@ -169,6 +170,41 @@ export default function LandingPage() {
                 className={classes.icon}
                 src={customSoftwareIcon}
                 alt="Custom Software icon"
+              />
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item>
+          {/*----Mobile Block ----*/}
+          <Grid
+            container
+            justifyContent={matchesSM ? "center" : "flex-end"}
+            direction="row"
+            className={classes.serviceContainer}
+          >
+            <Grid
+              item
+              style={{
+                textAlign: matchesSM ? "center" : undefined,
+              }}
+            >
+              <Typography variant="h4">Mobile Apps</Typography>
+              <Typography variant="subtitle1" className={classes.subtitle}>
+                Extend Functionality. Extend Access. Increase Engagement.
+              </Typography>
+              <Typography variant="subtitle1">
+                Integrate your web experience or create a standaone app{" "}
+                {matchesSM ? null : <br />} with either mobile platform.
+              </Typography>
+              <Button variant="outlined" className={classes.learnButton}>
+                Learn More
+              </Button>
+            </Grid>
+            <Grid item style={{ marginRight: matchesSM ? 0 : "5em" }}>
+              <img
+                className={classes.icon}
+                src={mobileAppsIcon}
+                alt="Mobile phone icon"
               />
             </Grid>
           </Grid>
