@@ -9,6 +9,8 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 import customSoftwareIcon from "../assets/Custom Software Icon.svg";
 import mobileAppsIcon from "../assets/mobileIcon.svg";
+import websitesIcon from "../assets/websiteIcon.svg";
+
 import animationData from "../animations/landinganimation/data";
 
 const useStyle = makeStyles()((theme) => ({
