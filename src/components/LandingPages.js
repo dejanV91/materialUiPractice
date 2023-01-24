@@ -4,6 +4,7 @@ import { makeStyles } from "tss-react/mui";
 import Grid from "@mui/material/Grid";
 import { Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
+import customSoftwareIcon from "../assets/Custom Software Icon.svg";
 
 import animationData from "../animations/landinganimation/data";
 
@@ -34,15 +35,16 @@ const useStyle = makeStyles()((theme) => ({
     marginTop: "1em",
   },
   learnButtonHero: {
-    borderColor: theme.palette.common.blue,
-    borderWidth: 2,
-    textTransform: "none",
-    borderRadius: 50,
-    fontFamily: "Roboto",
-    fontWeight: "bold",
+    ...theme.typography.learnButton,
     fontSize: "0.9rem",
     height: 45,
     width: 145,
+  },
+  learnButton: {
+    ...theme.typography.learnButton,
+    fontSize: "0.7rem",
+    height: 35,
+    padding: 5,
   },
   mainContainer: {
     maxHeight: "auto",
@@ -52,6 +54,13 @@ const useStyle = makeStyles()((theme) => ({
   heroTextContainer: {
     minWidth: "21.5em",
     marginLeft: "1em",
+  },
+  specialText: {
+    fontFamily: "Pacifico",
+    color: theme.palette.common.orange,
+  },
+  subtitle: {
+    marginBottom: "1em",
   },
 }));
 
@@ -116,13 +125,19 @@ export default function LandingPage() {
           <Grid container direction="row">
             <Grid item>
               <Typography variant="h4">Custom Software Development</Typography>
-              <Typography variant="subtitle1">
+              <Typography variant="subtitle1" className={classes.subtitle}>
                 Save Energy. Save Time. Save Monay
               </Typography>
               <Typography variant="subtitle1">
                 Complete digital solutions, from investigation to{" "}
-                <span>celebration</span>
+                <span className={classes.specialText}>celebration</span>
               </Typography>
+              <Button variant="outlined" className={classes.learnButton}>
+                Learn More
+              </Button>
+            </Grid>
+            <Grid item>
+              <img src={customSoftwareIcon} alt="Custom Software icon" />
             </Grid>
           </Grid>
         </Grid>
