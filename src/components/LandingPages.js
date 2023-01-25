@@ -211,6 +211,41 @@ export default function LandingPage() {
             </Grid>
           </Grid>
         </Grid>
+        <Grid item>
+          {/*----Websites Block ----*/}
+          <Grid
+            container
+            justifyContent={matchesSM ? "center" : undefined}
+            direction="row"
+            className={classes.serviceContainer}
+          >
+            <Grid
+              item
+              style={{
+                marginLeft: matchesSM ? 0 : "5em",
+                textAlign: matchesSM ? "center" : undefined,
+              }}
+            >
+              <Typography variant="h4">Custom Software Development</Typography>
+              <Typography variant="subtitle1" className={classes.subtitle}>
+                Reach More. Discover More. Sell More.
+              </Typography>
+              <Typography variant="subtitle1">
+                Optimized for Search Engines, built for speed.
+              </Typography>
+              <Button variant="outlined" className={classes.learnButton}>
+                Learn More
+              </Button>
+            </Grid>
+            <Grid item>
+              <img
+                className={classes.icon}
+                src={websitesIcon}
+                alt="website icon"
+              />
+            </Grid>
+          </Grid>
+        </Grid>
       </Grid>
     </React.Fragment>
   );
