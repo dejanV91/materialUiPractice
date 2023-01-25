@@ -6,10 +6,13 @@ import Grid from "@mui/material/Grid";
 import { Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 
 import customSoftwareIcon from "../assets/Custom Software Icon.svg";
 import mobileAppsIcon from "../assets/mobileIcon.svg";
 import websitesIcon from "../assets/websiteIcon.svg";
+import revolutionBackground from "../assets/repeatingBackground.svg";
 
 import animationData from "../animations/landinganimation/data";
 
@@ -79,6 +82,20 @@ const useStyle = makeStyles()((theme) => ({
     [theme.breakpoints.down("md")]: {
       padding: 25,
     },
+  },
+  revolutionBackground: {
+    backgroundImage: `url(${revolutionBackground})`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    height: "100%",
+    width: "100%",
+  },
+  revolutionCard: {
+    position: "absolute",
+    boxShadow: theme.shadows[10],
+    borderRadius: 15,
+    padding: "10em",
   },
 }));
 
@@ -244,6 +261,41 @@ export default function LandingPage() {
                 alt="website icon"
               />
             </Grid>
+          </Grid>
+        </Grid>
+        <Grid item>
+          <Grid
+            container
+            style={{ height: "100em" }}
+            alignContent="center"
+            justifyContent="center"
+          >
+            <Card className={classes.revolutionCard}>
+              <CardContent>
+                <Grid
+                  container
+                  direction="column"
+                  style={{ textAlign: "center" }}
+                >
+                  <Grid item>
+                    <Typography variant="h3">The Revolution</Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography variant="subtitle1">
+                      Visionary insights coupled with cutting-edge technology is
+                      a recipe for revolution.
+                    </Typography>
+                    <Button
+                      className={classes.learnButtonHero}
+                      variant="outlined"
+                    >
+                      Learn More
+                    </Button>
+                  </Grid>
+                </Grid>
+              </CardContent>
+            </Card>
+            <div className={classes.revolutionBackground}></div>
           </Grid>
         </Grid>
       </Grid>
