@@ -31,6 +31,11 @@ export default createTheme({
       color: arcBlue,
       lineHeight: 1.5,
     },
+    h3: {
+      fontFamily: "Pacifico",
+      fontSize: "2.5rem",
+      color: arcBlue,
+    },
     h4: {
       fontFamily: "Raleway",
       fontSize: "1.75rem",
