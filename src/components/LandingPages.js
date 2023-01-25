@@ -93,9 +93,9 @@ const useStyle = makeStyles()((theme) => ({
   },
   revolutionCard: {
     position: "absolute",
-    boxShadow: theme.shadows[10],
+    boxShadow: theme.shadows[8],
     borderRadius: 15,
-    padding: "10em",
+    padding: "10rem",
     [theme.breakpoints.down("lg")]: {
       paddingTop: "8em",
       paddingBottom: "8em",
