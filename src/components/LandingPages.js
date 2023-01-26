@@ -320,24 +320,45 @@ export default function LandingPage() {
           {/*-------- information Block  --------*/}
           <Grid
             container
-            style={{ height: "80em" }}
+            style={{ height: "80em", width: "100%" }}
             alignItems="center"
             direction="row"
           >
-            <Grid item style={{ position: "absolute", marginLeft: "5em" }}>
-              <Grid container direction="column">
-                <Typography variant="h2" style={{ color: "white" }}>
-                  About Us
-                </Typography>
-                <Typography variant="subtitle2">Let's get personal.</Typography>
-                <Grid item>
-                  <Button
-                    variant="outlined"
-                    style={{ color: "white", borderColor: "white" }}
-                    className={classes.learnButton}
-                  >
-                    Learn More
-                  </Button>
+            <Grid item container style={{ position: "absolute" }}>
+              <Grid sm item style={{ marginLeft: "5em" }}>
+                <Grid container direction="column">
+                  <Typography variant="h2" style={{ color: "white" }}>
+                    About Us
+                  </Typography>
+                  <Typography variant="subtitle2">
+                    Let's get personal.
+                  </Typography>
+                  <Grid item>
+                    <Button
+                      variant="outlined"
+                      style={{ color: "white", borderColor: "white" }}
+                      className={classes.learnButton}
+                    >
+                      Learn More
+                    </Button>
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid sm item style={{ marginRight: "5em", textAlign: "right" }}>
+                <Grid container direction="column">
+                  <Typography variant="h2" style={{ color: "white" }}>
+                    Contact Us
+                  </Typography>
+                  <Typography variant="subtitle2">Say hello!</Typography>
+                  <Grid item>
+                    <Button
+                      variant="outlined"
+                      style={{ color: "white", borderColor: "white" }}
+                      className={classes.learnButton}
+                    >
+                      Learn More
+                    </Button>
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
