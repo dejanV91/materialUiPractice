@@ -13,7 +13,7 @@ import customSoftwareIcon from "../assets/Custom Software Icon.svg";
 import mobileAppsIcon from "../assets/mobileIcon.svg";
 import websitesIcon from "../assets/websiteIcon.svg";
 import revolutionBackground from "../assets/repeatingBackground.svg";
-
+import infoBackground from "../assets/infoBackground.svg";
 import animationData from "../animations/landinganimation/data";
 
 const useStyle = makeStyles()((theme) => ({
@@ -104,6 +104,14 @@ const useStyle = makeStyles()((theme) => ({
       borderRadius: 0,
       width: "100%",
     },
+  },
+  infoBackground: {
+    backgroundImage: `url(${infoBackground})`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    height: "100%",
+    width: "100%",
   },
 }));
 
@@ -306,6 +314,34 @@ export default function LandingPage() {
               </CardContent>
             </Card>
             <div className={classes.revolutionBackground}></div>
+          </Grid>
+        </Grid>
+        <Grid item>
+          {/*-------- information Block  --------*/}
+          <Grid
+            container
+            style={{ height: "80em" }}
+            alignItems="center"
+            direction="row"
+          >
+            <Grid item style={{ position: "absolute", marginLeft: "5em" }}>
+              <Grid container direction="column">
+                <Typography variant="h2" style={{ color: "white" }}>
+                  About Us
+                </Typography>
+                <Typography variant="subtitle2">Let's get personal.</Typography>
+                <Grid item>
+                  <Button
+                    variant="outlined"
+                    style={{ color: "white", borderColor: "white" }}
+                    className={classes.learnButton}
+                  >
+                    Learn More
+                  </Button>
+                </Grid>
+              </Grid>
+            </Grid>
+            <div className={classes.infoBackground}></div>
           </Grid>
         </Grid>
       </Grid>
