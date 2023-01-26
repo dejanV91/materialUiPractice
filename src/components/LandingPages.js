@@ -9,6 +9,8 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 
+import CallToAction from "./ui/CallToAction";
+
 import customSoftwareIcon from "../assets/Custom Software Icon.svg";
 import mobileAppsIcon from "../assets/mobileIcon.svg";
 import websitesIcon from "../assets/websiteIcon.svg";
@@ -387,6 +389,10 @@ export default function LandingPage() {
             </Grid>
             <div className={classes.infoBackground}></div>
           </Grid>
+        </Grid>
+        <Grid item>
+          {/* ------Call To Action block ----- */}
+          <CallToAction />
         </Grid>
       </Grid>
     </React.Fragment>
