@@ -119,6 +119,7 @@ export default function LandingPage() {
   const { classes } = useStyle();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesXS = useMediaQuery(theme.breakpoints.down("sm"));
 
   const defaultOptions = {
     loop: true,
@@ -324,8 +325,23 @@ export default function LandingPage() {
             alignItems="center"
             direction="row"
           >
-            <Grid item container style={{ position: "absolute" }}>
-              <Grid sm item style={{ marginLeft: "5em" }}>
+            <Grid
+              item
+              container
+              style={{
+                position: "absolute",
+                textAlign: matchesXS ? "center" : "inherit",
+              }}
+              direction={matchesXS ? "column" : "row"}
+              spacing={matchesSM ? 10 : 0}
+            >
+              <Grid
+                sm
+                item
+                style={{
+                  marginLeft: matchesXS ? 0 : matchesSM ? "2em" : "5em",
+                }}
+              >
                 <Grid container direction="column">
                   <Typography variant="h2" style={{ color: "white" }}>
                     About Us
@@ -344,7 +360,14 @@ export default function LandingPage() {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid sm item style={{ marginRight: "5em", textAlign: "right" }}>
+              <Grid
+                sm
+                item
+                style={{
+                  marginRight: matchesXS ? 0 : matchesXS ? "2em" : "5em",
+                  textAlign: matchesXS ? "center" : "right",
+                }}
+              >
                 <Grid container direction="column">
                   <Typography variant="h2" style={{ color: "white" }}>
                     Contact Us
