@@ -5,7 +5,7 @@ import { makeStyles } from "tss-react/mui";
 import Button from "@mui/material/Button";
 import { useTheme } from "@mui/material/styles";
 
-import background from "../../assets/background.jpg";
+import backgroundCall from "../../assets/background.jpg";
 import mobileBackground from "../../assets/mobileBackground.jpg";
 
 const useStyle = makeStyles()((theme) => ({
@@ -17,7 +17,7 @@ const useStyle = makeStyles()((theme) => ({
     [theme.breakpoints.down("md")]: { marginBottom: "2em" },
   },
   background: {
-    backgroundImage: `url(${background})`,
+    backgroundImage: `url(${backgroundCall})`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -30,19 +30,19 @@ const useStyle = makeStyles()((theme) => ({
 }));
 
 export default function CallToAction() {
-  const classes = useStyle();
+  const { classes } = useStyle();
   const theme = useTheme();
 
   return (
-    <Grid container>
-      <Grid item>
+    <Grid container style={{ height: "60em" }}>
+      <Grid item style={{ position: "absolute" }}>
         <Grid container direction="column">
           <Grid item>
             <Typography variant="h2">
               Simple Software.
               <br /> Revolutionary Results.
             </Typography>
-            <Typography variant="subtitle2">
+            <Typography variant="subtitle2" style={{ fontSize: "1.5rem" }}>
               Take advatage of the 21th Century.
             </Typography>
             <Grid container item>
@@ -53,7 +53,7 @@ export default function CallToAction() {
           </Grid>
         </Grid>
       </Grid>
-      <div className={classes.background}></div>
+      <div className={classes.background} />
     </Grid>
   );
 }
