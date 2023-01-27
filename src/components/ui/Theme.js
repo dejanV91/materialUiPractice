@@ -52,6 +52,9 @@ export default createTheme({
       fontSize: "1.25rem",
       fontWeight: 300,
     },
+    estimate: {
+      fontFamily: "Pacifico",
+    },
     learnButton: {
       borderColor: arcBlue,
       borderWidth: 2,

@@ -21,11 +21,20 @@ const useStyle = makeStyles()((theme) => ({
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    height: "100%",
+    height: "60em",
     width: "100%",
     [theme.breakpoints.down("sm")]: {
       backgroundImage: `url(${mobileBackground})`,
     },
+  },
+  estimateButton: {
+    ...theme.typography.estimate,
+    borderRadius: 50,
+    height: 80,
+    width: 205,
+    backgroundColor: theme.palette.common.orange,
+    fontSize: "1rem",
+    marginRight: "5em",
   },
 }));
 
@@ -34,8 +43,13 @@ export default function CallToAction() {
   const theme = useTheme();
 
   return (
-    <Grid container style={{ height: "60em" }}>
-      <Grid item style={{ position: "absolute" }}>
+    <Grid
+      container
+      alignItems="center"
+      justifyContent="space-between"
+      className={classes.background}
+    >
+      <Grid item style={{ marginLeft: "5em" }}>
         <Grid container direction="column">
           <Grid item>
             <Typography variant="h2">
@@ -53,7 +67,11 @@ export default function CallToAction() {
           </Grid>
         </Grid>
       </Grid>
-      <div className={classes.background} />
+      <Grid item>
+        <Button variant="contained" className={classes.estimateButton}>
+          Free Estimate
+        </Button>
+      </Grid>
     </Grid>
   );
 }
