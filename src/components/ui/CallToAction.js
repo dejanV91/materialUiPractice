@@ -44,10 +44,13 @@ const useStyle = makeStyles()((theme) => ({
       marginLeft: 0,
       marginRight: 0,
     },
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.light,
+    },
   },
 }));
 
-export default function CallToAction() {
+export default function CallToAction(props) {
   const { classes } = useStyle();
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
@@ -86,6 +89,9 @@ export default function CallToAction() {
                 to="/revolution"
                 variant="outlined"
                 className={classes.learnButton}
+                onClick={() => {
+                  props.setValue(2);
+                }}
               >
                 Learn More
               </Button>
@@ -99,6 +105,9 @@ export default function CallToAction() {
           to="/estimate"
           variant="contained"
           className={classes.estimateButton}
+          onClick={() => {
+            props.setValue(5);
+          }}
         >
           Free Estimate
         </Button>

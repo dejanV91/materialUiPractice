@@ -118,7 +118,7 @@ const useStyle = makeStyles()((theme) => ({
   },
 }));
 
-export default function LandingPage() {
+export default function LandingPage(props) {
   const { classes } = useStyle();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("md"));
@@ -160,6 +160,7 @@ export default function LandingPage() {
                     to="/estimate"
                     className={classes.estimateButton}
                     variant="contained"
+                    onClick={() => props.setValue(5)}
                   >
                     Free Estimate
                   </Button>
@@ -170,6 +171,7 @@ export default function LandingPage() {
                     to="/revolution"
                     className={classes.learnButtonHero}
                     variant="outlined"
+                    onClick={() => props.setValue(2)}
                   >
                     Learn More
                   </Button>
@@ -209,6 +211,10 @@ export default function LandingPage() {
                 to="/customs"
                 variant="outlined"
                 className={classes.learnButton}
+                onClick={() => {
+                  props.setValue(1);
+                  props.setSelectedIndex(1);
+                }}
               >
                 Learn More
               </Button>
@@ -249,6 +255,10 @@ export default function LandingPage() {
                 to="/mobile"
                 variant="outlined"
                 className={classes.learnButton}
+                onClick={() => {
+                  props.setValue(1);
+                  props.setSelectedIndex(2);
+                }}
               >
                 Learn More
               </Button>
@@ -289,6 +299,10 @@ export default function LandingPage() {
                 to="/websites"
                 variant="outlined"
                 className={classes.learnButton}
+                onClick={() => {
+                  props.setValue(1);
+                  props.setSelectedIndex(3);
+                }}
               >
                 Learn More
               </Button>
@@ -331,6 +345,9 @@ export default function LandingPage() {
                       to="/revolution"
                       className={classes.learnButtonHero}
                       variant="outlined"
+                      onClick={() => {
+                        props.setValue(2);
+                      }}
                     >
                       Learn More
                     </Button>
@@ -380,6 +397,9 @@ export default function LandingPage() {
                       variant="outlined"
                       style={{ color: "white", borderColor: "white" }}
                       className={classes.learnButton}
+                      onClick={() => {
+                        props.setValue(4);
+                      }}
                     >
                       Learn More
                     </Button>
@@ -406,6 +426,9 @@ export default function LandingPage() {
                       variant="outlined"
                       style={{ color: "white", borderColor: "white" }}
                       className={classes.learnButton}
+                      onClick={() => {
+                        props.setValue(3);
+                      }}
                     >
                       Learn More
                     </Button>
@@ -418,7 +441,7 @@ export default function LandingPage() {
         </Grid>
         <Grid item>
           {/* ------Call To Action block ----- */}
-          <CallToAction />
+          <CallToAction setValue={props.setValue} />
         </Grid>
       </Grid>
     </React.Fragment>
