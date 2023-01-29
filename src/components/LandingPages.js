@@ -3,6 +3,7 @@ import Lottie from "react-lottie";
 import { makeStyles } from "tss-react/mui";
 import { useTheme } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
+import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -155,6 +156,8 @@ export default function LandingPage() {
               >
                 <Grid item>
                   <Button
+                    component={Link}
+                    to="/estimate"
                     className={classes.estimateButton}
                     variant="contained"
                   >
@@ -163,6 +166,8 @@ export default function LandingPage() {
                 </Grid>
                 <Grid item>
                   <Button
+                    component={Link}
+                    to="/revolution"
                     className={classes.learnButtonHero}
                     variant="outlined"
                   >
@@ -199,7 +204,12 @@ export default function LandingPage() {
                 Complete digital solutions, from investigation to{" "}
                 <span className={classes.specialText}>celebration</span>
               </Typography>
-              <Button variant="outlined" className={classes.learnButton}>
+              <Button
+                component={Link}
+                to="/customs"
+                variant="outlined"
+                className={classes.learnButton}
+              >
                 Learn More
               </Button>
             </Grid>
@@ -234,7 +244,12 @@ export default function LandingPage() {
                 Integrate your web experience or create a standaone app{" "}
                 {matchesSM ? null : <br />} with either mobile platform.
               </Typography>
-              <Button variant="outlined" className={classes.learnButton}>
+              <Button
+                component={Link}
+                to="/mobile"
+                variant="outlined"
+                className={classes.learnButton}
+              >
                 Learn More
               </Button>
             </Grid>
@@ -262,14 +277,19 @@ export default function LandingPage() {
                 textAlign: matchesSM ? "center" : undefined,
               }}
             >
-              <Typography variant="h4">Custom Software Development</Typography>
+              <Typography variant="h4">Websites Development</Typography>
               <Typography variant="subtitle1" className={classes.subtitle}>
                 Reach More. Discover More. Sell More.
               </Typography>
               <Typography variant="subtitle1">
                 Optimized for Search Engines, built for speed.
               </Typography>
-              <Button variant="outlined" className={classes.learnButton}>
+              <Button
+                component={Link}
+                to="/websites"
+                variant="outlined"
+                className={classes.learnButton}
+              >
                 Learn More
               </Button>
             </Grid>
@@ -307,6 +327,8 @@ export default function LandingPage() {
                       a recipe for revolution.
                     </Typography>
                     <Button
+                      component={Link}
+                      to="/revolution"
                       className={classes.learnButtonHero}
                       variant="outlined"
                     >
@@ -353,6 +375,8 @@ export default function LandingPage() {
                   </Typography>
                   <Grid item>
                     <Button
+                      component={Link}
+                      to="/aboutus"
                       variant="outlined"
                       style={{ color: "white", borderColor: "white" }}
                       className={classes.learnButton}
@@ -377,6 +401,8 @@ export default function LandingPage() {
                   <Typography variant="subtitle2">Say hello!</Typography>
                   <Grid item>
                     <Button
+                      component={Link}
+                      to="/contactus"
                       variant="outlined"
                       style={{ color: "white", borderColor: "white" }}
                       className={classes.learnButton}

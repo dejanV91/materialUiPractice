@@ -5,6 +5,7 @@ import { makeStyles } from "tss-react/mui";
 import Button from "@mui/material/Button";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { Link } from "react-router-dom";
 
 import backgroundCall from "../../assets/background.jpg";
 import mobileBackground from "../../assets/mobileBackground.jpg";
@@ -80,7 +81,12 @@ export default function CallToAction() {
               justifyContent={matchesMD ? "center" : undefined}
               item
             >
-              <Button variant="outlined" className={classes.learnButton}>
+              <Button
+                component={Link}
+                to="/revolution"
+                variant="outlined"
+                className={classes.learnButton}
+              >
                 Learn More
               </Button>
             </Grid>
@@ -88,7 +94,12 @@ export default function CallToAction() {
         </Grid>
       </Grid>
       <Grid item>
-        <Button variant="contained" className={classes.estimateButton}>
+        <Button
+          component={Link}
+          to="/estimate"
+          variant="contained"
+          className={classes.estimateButton}
+        >
           Free Estimate
         </Button>
       </Grid>

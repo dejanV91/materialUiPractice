@@ -242,7 +242,14 @@ export default function Header(props) {
           to="/contactus"
         ></Tab>
       </Tabs>
-      <Button className={classes.button} variant="contained" color="secondary">
+      <Button
+        component={Link}
+        to="/estimate"
+        className={classes.button}
+        variant="contained"
+        color="secondary"
+        onClick={() => props.setValue(5)}
+      >
         Free Estimate
       </Button>
       <Menu
