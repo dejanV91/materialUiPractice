@@ -4,7 +4,8 @@ import Footer from "./ui/Footer";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./ui/Theme";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LandingPage from "../components/LandingPages";
+import LandingPage from "./LandingPages";
+import Services from "./Services";
 
 function App() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -29,7 +30,15 @@ function App() {
               />
             }
           ></Route>
-          <Route path="/services" element={<div>Services</div>}></Route>
+          <Route
+            path="services"
+            element={
+              <Services
+                setValue={setValue}
+                setSelectedIndex={setSelectedIndex}
+              />
+            }
+          ></Route>
           <Route path="/revolution" element={<div>The Revolution</div>}></Route>
           <Route path="/aboutus" element={<div>About Us</div>}></Route>
           <Route path="/contactus" element={<div>Contact Us</div>}></Route>
