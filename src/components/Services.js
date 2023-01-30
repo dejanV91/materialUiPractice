@@ -13,7 +13,7 @@ import customSoftwareIcon from "../assets/Custom Software Icon.svg";
 import mobileAppsIcon from "../assets/mobileIcon.svg";
 import websitesIcon from "../assets/websiteIcon.svg";
 
-const useStyles = makeStyles()((theme) => {});
+const useStyles = makeStyles()((theme) => ({}));
 
 export default function Services(props) {
   const { classes } = useStyles();
