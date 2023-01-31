@@ -13,6 +13,8 @@ import lightbulb from "../assets/bulb.svg";
 import cash from "../assets/cash.svg";
 import stopwatch from "../assets/stopwatch.svg";
 
+import documentsAnimation from "../animations/documentsAnimation/data";
+
 const useStyles = makeStyles()((theme) => ({
   heading: {
     maxWidth: "40em",
@@ -26,10 +28,22 @@ const useStyles = makeStyles()((theme) => ({
     paddingTop: "2em",
     paddingBottom: "10em",
   },
+  itemContainer: {
+    maxWidth: "40em",
+  },
 }));
 
 export default function CustomSoftware(props) {
   const { classes } = useStyles();
+
+  const documentsOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: documentsAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   return (
     <Grid container direction="column" className={classes.mainContainer}>
@@ -99,7 +113,7 @@ export default function CustomSoftware(props) {
         container
         direction="row"
         justifyContent="center"
-        style={{ marginTop: "15em", marginBottom: "20em" }}
+        style={{ marginTop: "10em", marginBottom: "15em" }}
       >
         <Grid
           item
@@ -144,6 +158,38 @@ export default function CustomSoftware(props) {
           </Grid>
           <Grid item>
             <img src={cash} alt="cash" />
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item container direction="row">
+        <Grid item container className={classes.itemContainer}>
+          <Grid item container direction="column" md>
+            <Grid item>
+              <Typography variant="h4">Digital Documents & Data</Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="body1" paragraph>
+                Lorem ipsum dolor sit amet consectetur.
+              </Typography>
+              <Typography variant="body1" paragraph>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Pariatur, obcaecati, consequatur voluptates, tempora cum
+                reprehenderit fugit quasi a quam iste quo nam autem illo sed
+                nesciunt eos animi hic quod!
+              </Typography>
+              <Typography variant="body1" paragraph>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+                aspernatur debitis eos in voluptas provident qui aut. Nostrum,
+                laudantium!
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid item md>
+            <Lottie
+              options={documentsOptions}
+              isStopped={true}
+              style={{ maxHeight: 325, maxWidth: 275, minHeight: 275 }}
+            ></Lottie>
           </Grid>
         </Grid>
       </Grid>
