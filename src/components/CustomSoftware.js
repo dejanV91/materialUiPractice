@@ -12,6 +12,7 @@ import forwardArrow from "../assets/forwardArrow.svg";
 import lightbulb from "../assets/bulb.svg";
 import cash from "../assets/cash.svg";
 import stopwatch from "../assets/stopwatch.svg";
+import roots from "../assets/root.svg";
 
 import documentsAnimation from "../animations/documentsAnimation/data";
 import scaleAnimation from "../animations/scaleAnimation/data.json";
@@ -170,8 +171,8 @@ export default function CustomSoftware(props) {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item container direction="row">
-        <Grid item container className={classes.itemContainer}>
+      <Grid item container direction="row" justifyContent="space-around">
+        <Grid item container className={classes.itemContainer} lg>
           <Grid item container direction="column" md>
             <Grid item>
               <Typography variant="h4">Digital Documents & Data</Typography>
@@ -196,12 +197,11 @@ export default function CustomSoftware(props) {
           <Grid item md>
             <Lottie
               options={documentsOptions}
-              isStopped={true}
-              style={{ maxHeight: 325, maxWidth: 275, minHeight: 275 }}
+              style={{ maxHeight: 275, maxWidth: 275, minHeight: 250 }}
             ></Lottie>
           </Grid>
         </Grid>
-        <Grid item container className={classes.itemContainer}>
+        <Grid item container className={classes.itemContainer} lg>
           <Grid item md>
             <Lottie
               options={scaleOptions}
@@ -221,6 +221,31 @@ export default function CustomSoftware(props) {
                 et dolor officiis unde?
               </Typography>
             </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item container direction="row">
+        <Grid item container direction="column" alignItems="center">
+          <Grid item>
+            <img
+              src={roots}
+              alt="tree with roots extending out"
+              height="450em"
+              width="450em"
+            />
+          </Grid>
+          <Grid item style={{ maxWidth: "40em" }}>
+            <Typography variant="h4" align="center" gutterBottom>
+              Root-Couse Analysis
+            </Typography>
+            <Typography variant="body1" align="center" paragraph>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus!
+            </Typography>
+            <Typography variant="body1" align="center" paragraph>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
+              voluptates nisi ducimus aut magni obcaecati consequuntur
+              recusandae quaerat, eaque aspernatur ullam vitae optio nemo culpa?
+            </Typography>
           </Grid>
         </Grid>
       </Grid>
