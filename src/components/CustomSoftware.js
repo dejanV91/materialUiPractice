@@ -14,6 +14,7 @@ import cash from "../assets/cash.svg";
 import stopwatch from "../assets/stopwatch.svg";
 
 import documentsAnimation from "../animations/documentsAnimation/data";
+import scaleAnimation from "../animations/scaleAnimation/data.json";
 
 const useStyles = makeStyles()((theme) => ({
   heading: {
@@ -40,6 +41,14 @@ export default function CustomSoftware(props) {
     loop: true,
     autoplay: true,
     animationData: documentsAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+  const scaleOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: scaleAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
@@ -190,6 +199,28 @@ export default function CustomSoftware(props) {
               isStopped={true}
               style={{ maxHeight: 325, maxWidth: 275, minHeight: 275 }}
             ></Lottie>
+          </Grid>
+        </Grid>
+        <Grid item container className={classes.itemContainer}>
+          <Grid item md>
+            <Lottie
+              options={scaleOptions}
+              style={{ maxHeight: 260, maxWidth: 280 }}
+            ></Lottie>
+          </Grid>
+          <Grid item container direction="column" md>
+            <Grid item>
+              <Typography variant="h4" align="right">
+                Scale
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="body1" align="right" paragraph>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
+                perspiciatis sequi? Ipsa id perspiciatis, numquam expedita ipsam
+                et dolor officiis unde?
+              </Typography>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
