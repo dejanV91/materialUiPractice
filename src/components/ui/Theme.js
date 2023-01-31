@@ -42,6 +42,7 @@ export default createTheme({
       color: arcBlue,
       fontWeight: 700,
     },
+
     subtitle1: {
       fontSize: "1.25rem",
       fontWeight: 300,
@@ -50,6 +51,11 @@ export default createTheme({
     subtitle2: {
       color: "white",
       fontSize: "1.25rem",
+      fontWeight: 300,
+    },
+    body1: {
+      fontSize: "1.25rem",
+      color: arcGray,
       fontWeight: 300,
     },
     estimate: {

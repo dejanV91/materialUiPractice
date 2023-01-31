@@ -10,20 +10,41 @@ import useMediaQuery from "@mui/material";
 import backArrow from "../assets/backArrow.svg";
 import forwardArrow from "../assets/forwardArrow.svg";
 
-const useStyles = makeStyles()((theme) => ({}));
+const useStyles = makeStyles()((theme) => ({
+  heading: {
+    maxWidth: "40em",
+  },
+  arrowContainer: {
+    marginTop: "0.5em",
+  },
+  mainContainer: {
+    paddingLeft: "5em",
+    paddingRight: "5em",
+    paddingTop: "2em",
+    paddingBottom: "10em",
+  },
+}));
 
 export default function CustomSoftware() {
   const { classes } = useStyles();
 
   return (
-    <Grid container direction="column">
+    <Grid container direction="column" className={classes.mainContainer}>
       <Grid item container direction="row">
-        <Grid item>
-          <IconButton>
+        <Grid
+          item
+          className={classes.arrowContainer}
+          style={{ marginRight: "1em", marginLeft: "-3.5em" }}
+        >
+          <IconButton
+            style={{ backgroundColor: "transparent" }}
+            component={Link}
+            to="/services"
+          >
             <img src={backArrow} alt="back to services page" />
           </IconButton>
         </Grid>
-        <Grid item container direction="column">
+        <Grid item container direction="column" className={classes.heading}>
           <Grid item>
             <Typography variant="h2">Custom Software Development</Typography>
           </Grid>
@@ -53,14 +74,15 @@ export default function CustomSoftware() {
               consectetur consequatur!
             </Typography>
           </Grid>
-          <Grid item>
-            <IconButton>
-              <img
-                src={forwardArrow}
-                alt="Forward to Mobile Development page"
-              />
-            </IconButton>
-          </Grid>
+        </Grid>
+        <Grid item className={classes.arrowContainer}>
+          <IconButton
+            style={{ backgroundColor: "transparent" }}
+            component={Link}
+            to="/mobile"
+          >
+            <img src={forwardArrow} alt="Forward to Mobile Development page" />
+          </IconButton>
         </Grid>
       </Grid>
     </Grid>
