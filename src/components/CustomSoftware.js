@@ -9,6 +9,9 @@ import useMediaQuery from "@mui/material";
 
 import backArrow from "../assets/backArrow.svg";
 import forwardArrow from "../assets/forwardArrow.svg";
+import lightbulb from "../assets/bulb.svg";
+import cash from "../assets/cash.svg";
+import stopwatch from "../assets/stopwatch.svg";
 
 const useStyles = makeStyles()((theme) => ({
   heading: {
@@ -25,7 +28,7 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-export default function CustomSoftware() {
+export default function CustomSoftware(props) {
   const { classes } = useStyles();
 
   return (
@@ -40,6 +43,9 @@ export default function CustomSoftware() {
             style={{ backgroundColor: "transparent" }}
             component={Link}
             to="/services"
+            onClick={() => {
+              props.setSelectedIndex(0);
+            }}
           >
             <img src={backArrow} alt="back to services page" />
           </IconButton>
@@ -80,9 +86,65 @@ export default function CustomSoftware() {
             style={{ backgroundColor: "transparent" }}
             component={Link}
             to="/mobile"
+            onClick={() => {
+              props.setSelectedIndex(2);
+            }}
           >
             <img src={forwardArrow} alt="Forward to Mobile Development page" />
           </IconButton>
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction="row"
+        justifyContent="center"
+        style={{ marginTop: "15em", marginBottom: "20em" }}
+      >
+        <Grid
+          item
+          container
+          direction="column"
+          md
+          alignItems="center"
+          style={{ maxWidth: "40em" }}
+        >
+          <Grid item>
+            <Typography variant="h4">Save Energy</Typography>
+          </Grid>
+          <Grid item>
+            <img src={lightbulb} alt="lightbulb" />
+          </Grid>
+        </Grid>
+        <Grid
+          item
+          container
+          direction="column"
+          md
+          alignItems="center"
+          style={{ maxWidth: "40em" }}
+        >
+          <Grid item>
+            <Typography variant="h4">Save Time</Typography>
+          </Grid>
+          <Grid item>
+            <img src={stopwatch} alt="stopwatch" />
+          </Grid>
+        </Grid>
+        <Grid
+          item
+          container
+          direction="column"
+          md
+          alignItems="center"
+          style={{ maxWidth: "40em" }}
+        >
+          <Grid item>
+            <Typography variant="h4">Save Money</Typography>
+          </Grid>
+          <Grid item>
+            <img src={cash} alt="cash" />
+          </Grid>
         </Grid>
       </Grid>
     </Grid>
