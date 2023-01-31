@@ -109,6 +109,10 @@ const useStyles = makeStyles()((theme) => ({
   appbar: {
     zIndex: theme.zIndex.modal + 1,
   },
+  move: {
+    zIndex: 2000,
+    top: -70,
+  },
 }));
 
 export default function Header(props) {
@@ -253,6 +257,7 @@ export default function Header(props) {
         Free Estimate
       </Button>
       <Menu
+        className={classes.move}
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}

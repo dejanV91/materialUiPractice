@@ -6,6 +6,7 @@ import theme from "./ui/Theme";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./LandingPages";
 import Services from "./Services";
+import CustomSoftware from "./CustomSoftware";
 
 function App() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -39,6 +40,17 @@ function App() {
               />
             }
           ></Route>
+          <Route
+            path="/customs"
+            element={
+              <CustomSoftware
+                setValue={setValue}
+                setSelectedIndex={setSelectedIndex}
+              />
+            }
+          ></Route>
+          <Route path="/mobile" element={<div>Mobile</div>}></Route>
+          <Route path="/websites" element={<div>Websites</div>}></Route>
           <Route path="/revolution" element={<div>The Revolution</div>}></Route>
           <Route path="/aboutus" element={<div>About Us</div>}></Route>
           <Route path="/contactus" element={<div>Contact Us</div>}></Route>
