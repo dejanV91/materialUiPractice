@@ -21,6 +21,8 @@ import automationAnimation from "../animations/automationAnimation/data.json";
 import uxAnimation from "../animations/uxAnimation/data";
 import { useTheme } from "@mui/material/styles";
 
+import CallToAction from "./ui/CallToAction";
+
 const useStyles = makeStyles()((theme) => ({
   heading: {
     maxWidth: "40em",
@@ -28,11 +30,14 @@ const useStyles = makeStyles()((theme) => ({
   arrowContainer: {
     marginTop: "0.5em",
   },
-  mainContainer: {
+  rowContainer: {
     paddingLeft: "5em",
     paddingRight: "5em",
-    paddingTop: "2em",
-    paddingBottom: "10em",
+
+    [theme.breakpoints.down("md")]: {
+      paddingLeft: "1.5em",
+      paddingRight: "1.5em",
+    },
   },
   itemContainer: {
     maxWidth: "40em",
@@ -43,6 +48,7 @@ export default function CustomSoftware(props) {
   const { classes } = useStyles();
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesXS = useMediaQuery(theme.breakpoints.down("sm"));
 
   const documentsOptions = {
     loop: true,
@@ -78,12 +84,14 @@ export default function CustomSoftware(props) {
   };
 
   return (
-    <Grid container direction="column" className={classes.mainContainer}>
+    <Grid container direction="column">
       <Grid
         item
         container
         direction="row"
         justifyContent={matchesMD ? "center" : undefined}
+        className={classes.rowContainer}
+        style={{ marginTop: matchesXS ? "1em" : "2em" }}
       >
         <Hidden mdDown>
           <Grid
@@ -177,6 +185,7 @@ export default function CustomSoftware(props) {
         direction="row"
         justifyContent="center"
         style={{ marginTop: "10em", marginBottom: "15em" }}
+        className={classes.rowContainer}
       >
         <Grid
           item
@@ -187,7 +196,9 @@ export default function CustomSoftware(props) {
           style={{ maxWidth: "40em" }}
         >
           <Grid item>
-            <Typography variant="h4">Save Energy</Typography>
+            <Typography variant="h4" align={matchesMD ? "center" : undefined}>
+              Save Energy
+            </Typography>
           </Grid>
           <Grid item>
             <img src={lightbulb} alt="lightbulb" />
@@ -206,7 +217,9 @@ export default function CustomSoftware(props) {
           }}
         >
           <Grid item>
-            <Typography variant="h4">Save Time</Typography>
+            <Typography variant="h4" align={matchesMD ? "center" : undefined}>
+              Save Time
+            </Typography>
           </Grid>
           <Grid item>
             <img src={stopwatch} alt="stopwatch" />
@@ -221,7 +234,9 @@ export default function CustomSoftware(props) {
           style={{ maxWidth: "40em" }}
         >
           <Grid item>
-            <Typography variant="h4">Save Money</Typography>
+            <Typography variant="h4" align={matchesMD ? "center" : undefined}>
+              Save Money
+            </Typography>
           </Grid>
           <Grid item>
             <img src={cash} alt="cash" />
@@ -234,29 +249,45 @@ export default function CustomSoftware(props) {
         alignItems={matchesMD ? "center" : undefined}
         direction={matchesMD ? "column" : "row"}
         justifyContent="space-around"
+        className={classes.rowContainer}
       >
         <Grid
           item
           container
           className={classes.itemContainer}
+          direction={matchesMD ? "column" : "row"}
           style={{ marginBottom: matchesMD ? "10em" : 0 }}
           lg
         >
           <Grid item container direction="column" md>
             <Grid item>
-              <Typography variant="h4">Digital Documents & Data</Typography>
+              <Typography variant="h4" align={matchesMD ? "center" : undefined}>
+                Digital Documents & Data
+              </Typography>
             </Grid>
             <Grid item>
-              <Typography variant="body1" paragraph>
+              <Typography
+                variant="body1"
+                align={matchesMD ? "center" : undefined}
+                paragraph
+              >
                 Lorem ipsum dolor sit amet consectetur.
               </Typography>
-              <Typography variant="body1" paragraph>
+              <Typography
+                variant="body1"
+                align={matchesMD ? "center" : undefined}
+                paragraph
+              >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Pariatur, obcaecati, consequatur voluptates, tempora cum
                 reprehenderit fugit quasi a quam iste quo nam autem illo sed
                 nesciunt eos animi hic quod!
               </Typography>
-              <Typography variant="body1" paragraph>
+              <Typography
+                variant="body1"
+                align={matchesMD ? "center" : undefined}
+                paragraph
+              >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
                 aspernatur debitis eos in voluptas provident qui aut. Nostrum,
                 laudantium!
@@ -270,7 +301,13 @@ export default function CustomSoftware(props) {
             ></Lottie>
           </Grid>
         </Grid>
-        <Grid item container className={classes.itemContainer} lg>
+        <Grid
+          item
+          container
+          className={classes.itemContainer}
+          direction={matchesMD ? "column" : "row"}
+          lg
+        >
           <Grid item md>
             <Lottie
               options={scaleOptions}
@@ -279,12 +316,16 @@ export default function CustomSoftware(props) {
           </Grid>
           <Grid item container direction="column" md>
             <Grid item>
-              <Typography variant="h4" align="right">
+              <Typography variant="h4" align={matchesMD ? "center" : "right"}>
                 Scale
               </Typography>
             </Grid>
             <Grid item>
-              <Typography variant="body1" align="right" paragraph>
+              <Typography
+                variant="body1"
+                align={matchesMD ? "center" : "right"}
+                paragraph
+              >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
                 perspiciatis sequi? Ipsa id perspiciatis, numquam expedita ipsam
                 et dolor officiis unde?
@@ -297,15 +338,16 @@ export default function CustomSoftware(props) {
         item
         container
         direction="row"
-        style={{ marginTop: "17em", marginBottom: "17em" }}
+        style={{ marginTop: matchesMD ? "10em" : "17em", marginBottom: "17em" }}
+        className={classes.rowContainer}
       >
         <Grid item container direction="column" alignItems="center">
           <Grid item>
             <img
               src={roots}
               alt="tree with roots extending out"
-              height="450em"
-              width="450em"
+              height={matchesMD ? "300em" : "450em"}
+              width={matchesMD ? "300em" : "450em"}
             />
           </Grid>
           <Grid item style={{ maxWidth: "40em" }}>
@@ -330,28 +372,44 @@ export default function CustomSoftware(props) {
         direction={matchesMD ? "column" : "row"}
         justifyContent="space-around"
         style={{ marginBottm: "10em" }}
+        className={classes.rowContainer}
       >
         <Grid
           item
           container
           className={classes.itemContainer}
+          direction={matchesMD ? "column" : "row"}
           style={{ marginBottom: matchesMD ? "10em" : 0 }}
           lg
         >
           <Grid item container direction="column" md>
             <Grid item>
-              <Typography variant="h4">Automation</Typography>
+              <Typography variant="h4" align={matchesMD ? "center" : undefined}>
+                Automation
+              </Typography>
             </Grid>
             <Grid item>
-              <Typography variant="body1" paragraph>
+              <Typography
+                variant="body1"
+                align={matchesMD ? "center" : undefined}
+                paragraph
+              >
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
               </Typography>
-              <Typography variant="body1" paragraph>
+              <Typography
+                variant="body1"
+                align={matchesMD ? "center" : undefined}
+                paragraph
+              >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
                 consequatur quidem voluptas perferendis eaque totam repudiandae
                 dolores culpa!
               </Typography>
-              <Typography variant="body1" paragraph>
+              <Typography
+                variant="body1"
+                align={matchesMD ? "center" : undefined}
+                paragraph
+              >
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Voluptatem totam voluptates possimus quo aspernatur dolores.
               </Typography>
@@ -364,7 +422,14 @@ export default function CustomSoftware(props) {
             ></Lottie>
           </Grid>
         </Grid>
-        <Grid item container className={classes.itemContainer} lg>
+        <Grid
+          item
+          container
+          className={classes.itemContainer}
+          direction={matchesMD ? "column" : "row"}
+          lg
+          style={{ marginBottom: matchesMD ? "10em" : "20em" }}
+        >
           <Grid item md>
             <Lottie
               options={uxOptions}
@@ -373,20 +438,32 @@ export default function CustomSoftware(props) {
           </Grid>
           <Grid item container direction="column" md>
             <Grid item>
-              <Typography variant="h4" align="right">
+              <Typography variant="h4" align={matchesMD ? "center" : "right"}>
                 User Experience Design
               </Typography>
             </Grid>
             <Grid item>
-              <Typography variant="body1" align="right" paragraph>
+              <Typography
+                variant="body1"
+                align={matchesMD ? "center" : "right"}
+                paragraph
+              >
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Adipisci, amet.
               </Typography>
-              <Typography variant="body1" align="right" paragraph>
+              <Typography
+                variant="body1"
+                align={matchesMD ? "center" : "right"}
+                paragraph
+              >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
                 eius eveniet ab.
               </Typography>
-              <Typography variant="body1" align="right" paragraph>
+              <Typography
+                variant="body1"
+                align={matchesMD ? "center" : "right"}
+                paragraph
+              >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
                 similique dicta quia voluptate ullam tempore in ducimus
                 repudiandae reiciendis assumenda fugit suscipit modi, beatae
@@ -395,6 +472,9 @@ export default function CustomSoftware(props) {
             </Grid>
           </Grid>
         </Grid>
+      </Grid>
+      <Grid item>
+        <CallToAction setValue={props.setValue}></CallToAction>
       </Grid>
     </Grid>
   );
