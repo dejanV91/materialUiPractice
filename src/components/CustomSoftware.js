@@ -5,7 +5,8 @@ import { makeStyles } from "tss-react/mui";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import { Typography } from "@mui/material";
-import useMediaQuery from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Hidden from "@mui/material/Hidden";
 
 import backArrow from "../assets/backArrow.svg";
 import forwardArrow from "../assets/forwardArrow.svg";
@@ -18,6 +19,7 @@ import documentsAnimation from "../animations/documentsAnimation/data";
 import scaleAnimation from "../animations/scaleAnimation/data.json";
 import automationAnimation from "../animations/automationAnimation/data.json";
 import uxAnimation from "../animations/uxAnimation/data";
+import { useTheme } from "@mui/material/styles";
 
 const useStyles = makeStyles()((theme) => ({
   heading: {
@@ -39,6 +41,8 @@ const useStyles = makeStyles()((theme) => ({
 
 export default function CustomSoftware(props) {
   const { classes } = useStyles();
+  const theme = useTheme();
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
 
   const documentsOptions = {
     loop: true,
@@ -75,34 +79,52 @@ export default function CustomSoftware(props) {
 
   return (
     <Grid container direction="column" className={classes.mainContainer}>
-      <Grid item container direction="row">
-        <Grid
-          item
-          className={classes.arrowContainer}
-          style={{ marginRight: "1em", marginLeft: "-3.5em" }}
-        >
-          <IconButton
-            style={{ backgroundColor: "transparent" }}
-            component={Link}
-            to="/services"
-            onClick={() => {
-              props.setSelectedIndex(0);
-            }}
+      <Grid
+        item
+        container
+        direction="row"
+        justifyContent={matchesMD ? "center" : undefined}
+      >
+        <Hidden mdDown>
+          <Grid
+            item
+            className={classes.arrowContainer}
+            style={{ marginRight: "1em", marginLeft: "-3.5em" }}
           >
-            <img src={backArrow} alt="back to services page" />
-          </IconButton>
-        </Grid>
+            <IconButton
+              style={{ backgroundColor: "transparent" }}
+              component={Link}
+              to="/services"
+              onClick={() => {
+                props.setSelectedIndex(0);
+              }}
+            >
+              <img src={backArrow} alt="back to services page" />
+            </IconButton>
+          </Grid>
+        </Hidden>
+
         <Grid item container direction="column" className={classes.heading}>
           <Grid item>
-            <Typography variant="h2">Custom Software Development</Typography>
+            <Typography variant="h2" align={matchesMD ? "center" : undefined}>
+              Custom Software Development
+            </Typography>
           </Grid>
           <Grid item>
-            <Typography variant="body1" paragraph>
+            <Typography
+              align={matchesMD ? "center" : undefined}
+              variant="body1"
+              paragraph
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
               quam ab natus. Officiis culpa magni voluptatibus amet, neque
               doloremque.
             </Typography>
-            <Typography variant="body1" paragraph>
+            <Typography
+              align={matchesMD ? "center" : undefined}
+              variant="body1"
+              paragraph
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
               suscipit odio nulla, beatae, quibusdam officia eius qui dolores
               labore mollitia iusto, ad distinctio. Repellat quos fuga, cumque
@@ -110,31 +132,44 @@ export default function CustomSoftware(props) {
               voluptatibus quisquam, corrupti nulla adipisci sit facilis
               laudantium quidem temporibus voluptate consequuntur in voluptatum!
             </Typography>
-            <Typography variant="body1" paragraph>
+            <Typography
+              align={matchesMD ? "center" : undefined}
+              variant="body1"
+              paragraph
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam at
               reprehenderit est cupiditate laboriosam sunt? Quia fugiat
               exercitationem amet vel voluptates qui rem placeat praesentium
               quos quas sapiente cumque consequuntur provident maxime, error
               iste eos quidem ipsa in, incidunt eveniet?
             </Typography>
-            <Typography variant="body1" paragraph>
+            <Typography
+              align={matchesMD ? "center" : undefined}
+              variant="body1"
+              paragraph
+            >
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint,
               consectetur consequatur!
             </Typography>
           </Grid>
         </Grid>
-        <Grid item className={classes.arrowContainer}>
-          <IconButton
-            style={{ backgroundColor: "transparent" }}
-            component={Link}
-            to="/mobile"
-            onClick={() => {
-              props.setSelectedIndex(2);
-            }}
-          >
-            <img src={forwardArrow} alt="Forward to Mobile Development page" />
-          </IconButton>
-        </Grid>
+        <Hidden mdDown>
+          <Grid item className={classes.arrowContainer}>
+            <IconButton
+              style={{ backgroundColor: "transparent" }}
+              component={Link}
+              to="/mobile"
+              onClick={() => {
+                props.setSelectedIndex(2);
+              }}
+            >
+              <img
+                src={forwardArrow}
+                alt="Forward to Mobile Development page"
+              />
+            </IconButton>
+          </Grid>
+        </Hidden>
       </Grid>
       <Grid
         item
@@ -164,7 +199,11 @@ export default function CustomSoftware(props) {
           direction="column"
           md
           alignItems="center"
-          style={{ maxWidth: "40em" }}
+          style={{
+            maxWidth: "40em",
+            marginTop: matchesMD ? "7em" : 0,
+            marginBottom: matchesMD ? "7em" : 0,
+          }}
         >
           <Grid item>
             <Typography variant="h4">Save Time</Typography>
@@ -189,8 +228,20 @@ export default function CustomSoftware(props) {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item container direction="row" justifyContent="space-around">
-        <Grid item container className={classes.itemContainer} lg>
+      <Grid
+        item
+        container
+        alignItems={matchesMD ? "center" : undefined}
+        direction={matchesMD ? "column" : "row"}
+        justifyContent="space-around"
+      >
+        <Grid
+          item
+          container
+          className={classes.itemContainer}
+          style={{ marginBottom: matchesMD ? "10em" : 0 }}
+          lg
+        >
           <Grid item container direction="column" md>
             <Grid item>
               <Typography variant="h4">Digital Documents & Data</Typography>
@@ -272,8 +323,21 @@ export default function CustomSoftware(props) {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item container direction="row" justifyContent="space-around">
-        <Grid item container className={classes.itemContainer} lg>
+      <Grid
+        item
+        container
+        alignItems={matchesMD ? "center" : undefined}
+        direction={matchesMD ? "column" : "row"}
+        justifyContent="space-around"
+        style={{ marginBottm: "10em" }}
+      >
+        <Grid
+          item
+          container
+          className={classes.itemContainer}
+          style={{ marginBottom: matchesMD ? "10em" : 0 }}
+          lg
+        >
           <Grid item container direction="column" md>
             <Grid item>
               <Typography variant="h4">Automation</Typography>
