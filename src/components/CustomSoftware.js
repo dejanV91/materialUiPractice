@@ -16,6 +16,8 @@ import roots from "../assets/root.svg";
 
 import documentsAnimation from "../animations/documentsAnimation/data";
 import scaleAnimation from "../animations/scaleAnimation/data.json";
+import automationAnimation from "../animations/automationAnimation/data.json";
+import uxAnimation from "../animations/uxAnimation/data";
 
 const useStyles = makeStyles()((theme) => ({
   heading: {
@@ -50,6 +52,22 @@ export default function CustomSoftware(props) {
     loop: true,
     autoplay: true,
     animationData: scaleAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+  const automationOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: automationAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+  const uxOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: uxAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
@@ -224,7 +242,12 @@ export default function CustomSoftware(props) {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item container direction="row">
+      <Grid
+        item
+        container
+        direction="row"
+        style={{ marginTop: "17em", marginBottom: "17em" }}
+      >
         <Grid item container direction="column" alignItems="center">
           <Grid item>
             <img
@@ -246,6 +269,66 @@ export default function CustomSoftware(props) {
               voluptates nisi ducimus aut magni obcaecati consequuntur
               recusandae quaerat, eaque aspernatur ullam vitae optio nemo culpa?
             </Typography>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item container direction="row" justifyContent="space-around">
+        <Grid item container className={classes.itemContainer} lg>
+          <Grid item container direction="column" md>
+            <Grid item>
+              <Typography variant="h4">Automation</Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="body1" paragraph>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              </Typography>
+              <Typography variant="body1" paragraph>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
+                consequatur quidem voluptas perferendis eaque totam repudiandae
+                dolores culpa!
+              </Typography>
+              <Typography variant="body1" paragraph>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Voluptatem totam voluptates possimus quo aspernatur dolores.
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid item md>
+            <Lottie
+              options={automationOptions}
+              style={{ maxHeight: 290, maxWidth: 280 }}
+            ></Lottie>
+          </Grid>
+        </Grid>
+        <Grid item container className={classes.itemContainer} lg>
+          <Grid item md>
+            <Lottie
+              options={uxOptions}
+              style={{ maxHeight: 310, maxWidth: 155 }}
+            ></Lottie>
+          </Grid>
+          <Grid item container direction="column" md>
+            <Grid item>
+              <Typography variant="h4" align="right">
+                User Experience Design
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="body1" align="right" paragraph>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Adipisci, amet.
+              </Typography>
+              <Typography variant="body1" align="right" paragraph>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+                eius eveniet ab.
+              </Typography>
+              <Typography variant="body1" align="right" paragraph>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
+                similique dicta quia voluptate ullam tempore in ducimus
+                repudiandae reiciendis assumenda fugit suscipit modi, beatae
+                error possimus neque nihil!
+              </Typography>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
