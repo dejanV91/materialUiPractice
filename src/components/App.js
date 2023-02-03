@@ -9,6 +9,7 @@ import Services from "./Services";
 import CustomSoftware from "./CustomSoftware";
 import MobileApps from "./MobileApps";
 import Websites from "./Websites";
+import Revolution from "./Revolution";
 
 function App() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -69,7 +70,15 @@ function App() {
               />
             }
           ></Route>
-          <Route path="/revolution" element={<div>The Revolution</div>}></Route>
+          <Route
+            path="/revolution"
+            element={
+              <Revolution
+                setValue={setValue}
+                setSelectedIndex={setSelectedIndex}
+              />
+            }
+          ></Route>
           <Route path="/aboutus" element={<div>About Us</div>}></Route>
           <Route path="/contactus" element={<div>Contact Us</div>}></Route>
         </Routes>
