@@ -40,9 +40,9 @@ const useStyles = makeStyles()((theme) => ({
 export default function Websites(props) {
   const { classes } = useStyles();
   const theme = useTheme();
-  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+  const matchesMD = useMediaQuery(theme.breakpoints.down("lg"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesXS = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Grid container direction="column">
