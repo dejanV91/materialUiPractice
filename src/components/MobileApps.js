@@ -12,13 +12,40 @@ import Hidden from "@mui/material/Hidden";
 import forwardArrow from "../assets/forwardArrow.svg";
 import backArrow from "../assets/backArrow.svg";
 
-const useStyles = makeStyles()((theme) => ({}));
+import integrationAnimation from "../animations/integrationAnimation/data.json";
+
+const useStyles = makeStyles()((theme) => ({
+  heading: {
+    maxWidth: "40em",
+  },
+  arrowContainer: {
+    marginTop: "0.5em",
+  },
+  rowContainer: {
+    paddingLeft: "5em",
+    paddingRight: "5em",
+
+    [theme.breakpoints.down("md")]: {
+      paddingLeft: "1.5em",
+      paddingRight: "1.5em",
+    },
+  },
+}));
 
 export default function MobileApps(props) {
   const { classes } = useStyles();
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.down("lg"));
   const matchesXS = useMediaQuery(theme.breakpoints.down("md"));
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: integrationAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   return (
     <Grid container direction="column">
@@ -39,12 +66,12 @@ export default function MobileApps(props) {
             <IconButton
               style={{ backgroundColor: "transparent" }}
               component={Link}
-              to="/services"
+              to="/customs"
               onClick={() => {
-                props.setSelectedIndex(0);
+                props.setSelectedIndex(1);
               }}
             >
-              <img src={backArrow} alt="back to services page" />
+              <img src={backArrow} alt="back to custom development page" />
             </IconButton>
           </Grid>
         </Hidden>
@@ -52,7 +79,7 @@ export default function MobileApps(props) {
         <Grid item container direction="column" className={classes.heading}>
           <Grid item>
             <Typography variant="h2" align={matchesMD ? "center" : undefined}>
-              Custom Software Development
+              Mobile App Development
             </Typography>
           </Grid>
           <Grid item>
@@ -61,40 +88,27 @@ export default function MobileApps(props) {
               variant="body1"
               paragraph
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-              quam ab natus. Officiis culpa magni voluptatibus amet, neque
-              doloremque.
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse
+              quos vitae perspiciatis!
             </Typography>
             <Typography
               align={matchesMD ? "center" : undefined}
               variant="body1"
               paragraph
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-              suscipit odio nulla, beatae, quibusdam officia eius qui dolores
-              labore mollitia iusto, ad distinctio. Repellat quos fuga, cumque
-              ab blanditiis doloremque expedita obcaecati optio. Soluta, libero
-              voluptatibus quisquam, corrupti nulla adipisci sit facilis
-              laudantium quidem temporibus voluptate consequuntur in voluptatum!
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque
+              error fugiat laboriosam repellat aut totam est quis ipsam suscipit
+              provident mollitia animi, dicta minus culpa, odio rerum eveniet
+              excepturi at hic modi ea natus itaque. Dolorum distinctio porro
+              quisquam dolor, obcaecati tenetur sequi illum corporis molestias
+              temporibus eius est numquam!
             </Typography>
             <Typography
               align={matchesMD ? "center" : undefined}
               variant="body1"
               paragraph
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam at
-              reprehenderit est cupiditate laboriosam sunt? Quia fugiat
-              exercitationem amet vel voluptates qui rem placeat praesentium
-              quos quas sapiente cumque consequuntur provident maxime, error
-              iste eos quidem ipsa in, incidunt eveniet?
-            </Typography>
-            <Typography
-              align={matchesMD ? "center" : undefined}
-              variant="body1"
-              paragraph
-            >
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint,
-              consectetur consequatur!
+              Lorem, ipsum.
             </Typography>
           </Grid>
         </Grid>
@@ -103,18 +117,60 @@ export default function MobileApps(props) {
             <IconButton
               style={{ backgroundColor: "transparent" }}
               component={Link}
-              to="/mobile"
+              to="/websites"
               onClick={() => {
-                props.setSelectedIndex(2);
+                props.setSelectedIndex(3);
               }}
             >
               <img
                 src={forwardArrow}
-                alt="Forward to Mobile Development page"
+                alt="Forward to Websites Development page"
               />
             </IconButton>
           </Grid>
         </Hidden>
+      </Grid>
+      <Grid item container direction="row" className={classes.rowContainer}>
+        <Grid item container direction="column" md>
+          <Grid item>
+            <Typography variant="h4" gutterBottom>
+              Integration
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="body1" paragraph>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptatibus perspiciatis at repellat debitis! Repellat id
+              explicabo ex illo, qui ab.
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex,
+              quibusdam voluptatibus quaerat quasi reiciendis sunt laboriosam
+              impedit non aliquid dolorum.
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid item md>
+          <Lottie options={defaultOptions} isStopped={true}></Lottie>
+        </Grid>
+        <Grid item container direction="column" md>
+          <Grid item>
+            <Typography align="right" variant="h4" gutterBottom>
+              Simultaneous Platform Support
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography align="right" variant="body1" paragraph>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
+              provident officia distinctio! Omnis maiores dicta suscipit nihil
+              reprehenderit?
+            </Typography>
+            <Typography align="right" variant="body1" paragraph>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+              facere animi saepe amet iste at recusandae.
+            </Typography>
+          </Grid>
+        </Grid>
       </Grid>
     </Grid>
   );
