@@ -11,6 +11,7 @@ import MobileApps from "./MobileApps";
 import Websites from "./Websites";
 import Revolution from "./Revolution";
 import About from "./About";
+import Contact from "./Contact";
 
 function App() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -86,7 +87,15 @@ function App() {
               <About setValue={setValue} setSelectedIndex={setSelectedIndex} />
             }
           ></Route>
-          <Route path="/contactus" element={<div>Contact Us</div>}></Route>
+          <Route
+            path="/contactus"
+            element={
+              <Contact
+                setValue={setValue}
+                setSelectedIndex={setSelectedIndex}
+              />
+            }
+          ></Route>
         </Routes>
         <Footer setValue={setValue} setSelectedIndex={setSelectedIndex} />
       </BrowserRouter>
