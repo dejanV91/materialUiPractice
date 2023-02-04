@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "tss-react/mui";
 import { useTheme } from "@mui/material/styles";
@@ -24,6 +24,10 @@ const useStyles = makeStyles()((theme) => ({
 export default function Contact() {
   const { classes } = useStyles();
   const theme = useTheme();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
 
   return (
     <Grid container direction="row">
@@ -71,6 +75,32 @@ export default function Contact() {
             >
               dejan91@gmial.com
             </Typography>
+          </Grid>
+        </Grid>
+        <Grid item container>
+          <Grid item>
+            <TextField
+              label="Name"
+              id="name"
+              variant="standard"
+              value={name}
+            ></TextField>
+          </Grid>
+          <Grid item>
+            <TextField
+              label="Email"
+              id="emal"
+              variant="standard"
+              value={email}
+            ></TextField>
+          </Grid>
+          <Grid item>
+            <TextField
+              label="Phone"
+              id="phone"
+              variant="standard"
+              value={phone}
+            ></TextField>
           </Grid>
         </Grid>
       </Grid>
