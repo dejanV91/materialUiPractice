@@ -8,6 +8,8 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
 import background from "../assets/background.jpg";
+import phoneIcon from "../assets/phone.svg";
+import emailIcon from "../assets/email.svg";
 
 const useStyles = makeStyles()((theme) => ({
   background: {
@@ -36,6 +38,40 @@ export default function Contact() {
           >
             We're waiting{" "}
           </Typography>
+        </Grid>
+        <Grid item container>
+          <Grid item>
+            <img
+              src={phoneIcon}
+              alt="phone"
+              style={{ marginRight: "0.5em", verticalAlign: "bottom" }}
+            />
+          </Grid>
+          <Grid item>
+            <Typography
+              variant="body1"
+              style={{ color: theme.palette.common.blue, fontSize: "1rem" }}
+            >
+              (555) 555-5555
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid item container>
+          <Grid item>
+            <img
+              src={emailIcon}
+              alt="envelope"
+              style={{ marginRight: "0.5em", verticalAlign: "bottom" }}
+            />
+          </Grid>
+          <Grid item>
+            <Typography
+              variant="body1"
+              style={{ color: theme.palette.common.blue, fontSize: "1rem" }}
+            >
+              dejan91@gmial.com
+            </Typography>
+          </Grid>
         </Grid>
       </Grid>
       <Grid item container className={classes.background} lg={9}></Grid>
