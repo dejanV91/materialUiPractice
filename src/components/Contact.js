@@ -42,6 +42,23 @@ const useStyles = makeStyles()((theme) => ({
     padding: 5,
     [theme.breakpoints.down("md")]: { marginBottom: "2em" },
   },
+  message: {
+    border: `2px solid ${theme.palette.common.blue}`,
+    marginTop: "5em",
+    borderRadius: 5,
+    marginBottom: "2em",
+  },
+  sendButton: {
+    ...theme.typography.estimate,
+    borderRadius: 50,
+    height: 45,
+    width: 245,
+    fontSize: "1rem",
+    backgroundColor: theme.palette.common.orange,
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.light,
+    },
+  },
 }));
 
 export default function Contact(props) {
@@ -131,20 +148,27 @@ export default function Contact(props) {
             ></TextField>
           </Grid>
         </Grid>
-        <Grid item>
+        <Grid item style={{ maxWidth: "20em" }}>
           <TextField
             variant="standard"
+            InputProps={{ disableUnderline: true }}
             multiline
             rows={10}
             value={message}
+            className={classes.message}
             id="message"
             onChange={(event) => {
               setMessage(event.target.value);
             }}
           ></TextField>
         </Grid>
-        <Button variant="contained">
-          Send Message <img src={airplane} alt="paper airplane" />
+        <Button variant="contained" className={classes.sendButton}>
+          Send Message{" "}
+          <img
+            src={airplane}
+            style={{ marginLeft: "1em" }}
+            alt="paper airplane"
+          />
         </Button>
       </Grid>
       <Grid
