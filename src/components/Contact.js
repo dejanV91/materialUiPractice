@@ -65,6 +65,7 @@ export default function Contact(props) {
   const { classes } = useStyles();
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesLG = useMediaQuery(theme.breakpoints.down("lg"));
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -83,7 +84,7 @@ export default function Contact(props) {
       >
         <Grid item alignItems="center" style={{ marginBottom: "2em" }}>
           <Grid container direction="column">
-            <Grid item>
+            <Grid item style={{ marginTop: matchesLG ? "5em" : undefined }}>
               <Typography variant="h2" style={{ lineHeight: 1 }}>
                 Contact Us
               </Typography>
@@ -128,12 +129,18 @@ export default function Contact(props) {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid item container direction="column">
+            <Grid
+              item
+              container
+              direction="column"
+              style={{ maxWidth: "20em" }}
+            >
               <Grid item>
                 <TextField
                   label="Name"
                   id="name"
                   variant="standard"
+                  fullWidth
                   value={name}
                   onChange={(event) => setName(event.target.value)}
                 ></TextField>
@@ -143,6 +150,7 @@ export default function Contact(props) {
                   label="Email"
                   id="emal"
                   variant="standard"
+                  fullWidth
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                 ></TextField>
@@ -152,6 +160,7 @@ export default function Contact(props) {
                   label="Phone"
                   id="phone"
                   variant="standard"
+                  fullWidth
                   value={phone}
                   onChange={(event) => setPhone(event.target.value)}
                 ></TextField>
@@ -160,6 +169,7 @@ export default function Contact(props) {
             <Grid item style={{ maxWidth: "20em" }}>
               <TextField
                 variant="standard"
+                fullWidth
                 InputProps={{ disableUnderline: true }}
                 multiline
                 rows={10}
