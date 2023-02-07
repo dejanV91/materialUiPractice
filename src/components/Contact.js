@@ -257,7 +257,11 @@ export default function Contact(props) {
           </Grid>
         </Grid>
       </Grid>
-      <Dialog open={open} onClose={() => setOpen(false)}>
+      <Dialog
+        open={open}
+        onClose={() => setOpen(false)}
+        style={{ zIndex: 1302 }}
+      >
         <DialogContent>
           <Grid container direction="column">
             <Grid item>
