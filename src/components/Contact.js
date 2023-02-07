@@ -261,7 +261,7 @@ export default function Contact(props) {
         <DialogContent>
           <Grid container direction="column">
             <Grid item>
-              <Typography variant="h4" gutterBottom>
+              <Typography textAlign="center" variant="h4" gutterBottom>
                 Confirm Message
               </Typography>
             </Grid>
@@ -324,7 +324,7 @@ export default function Contact(props) {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item container>
+          <Grid item container alignItems="center">
             <Grid item>
               <Button color="primary" onClick={() => setOpen(false)}>
                 Cancel
