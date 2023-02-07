@@ -7,6 +7,8 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
 
 import background from "../assets/background.jpg";
 import phoneIcon from "../assets/phone.svg";
@@ -76,6 +78,8 @@ export default function Contact(props) {
   const [phoneHelper, setPhoneHelper] = useState("");
 
   const [message, setMessage] = useState("");
+
+  const [open, setOpen] = useState(false);
 
   const onChange = (event) => {
     let valid;
@@ -241,6 +245,7 @@ export default function Contact(props) {
                 email.length === 0
               }
               className={classes.sendButton}
+              onClick={() => setOpen(true)}
             >
               Send Message{" "}
               <img
@@ -252,6 +257,102 @@ export default function Contact(props) {
           </Grid>
         </Grid>
       </Grid>
+      <Dialog open={open} onClose={() => setOpen(false)}>
+        <DialogContent>
+          <Grid container direction="column">
+            <Grid item>
+              <Typography variant="h4" gutterBottom>
+                Confirm Message
+              </Typography>
+            </Grid>
+            <Grid item container>
+              <Grid
+                item
+                container
+                direction="column"
+                style={{ maxWidth: "20em" }}
+              >
+                <Grid item>
+                  <TextField
+                    label="Name"
+                    id="name"
+                    variant="standard"
+                    fullWidth
+                    value={name}
+                    onChange={(event) => setName(event.target.value)}
+                  ></TextField>
+                </Grid>
+                <Grid item>
+                  <TextField
+                    label="Email"
+                    id="email"
+                    variant="standard"
+                    error={emailHelper.length !== 0}
+                    helperText={emailHelper}
+                    fullWidth
+                    value={email}
+                    onChange={onChange}
+                  ></TextField>
+                </Grid>
+                <Grid item>
+                  <TextField
+                    label="Phone"
+                    id="phone"
+                    variant="standard"
+                    error={phoneHelper.length !== 0}
+                    helperText={phoneHelper}
+                    fullWidth
+                    value={phone}
+                    onChange={onChange}
+                  ></TextField>
+                </Grid>
+              </Grid>
+              <Grid item style={{ maxWidth: "20em" }}>
+                <TextField
+                  variant="standard"
+                  fullWidth
+                  InputProps={{ disableUnderline: true }}
+                  multiline
+                  rows={10}
+                  value={message}
+                  className={classes.message}
+                  id="message"
+                  onChange={(event) => {
+                    setMessage(event.target.value);
+                  }}
+                ></TextField>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item container>
+            <Grid item>
+              <Button color="primary" onClick={() => setOpen(false)}>
+                Cancel
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button
+                variant="contained"
+                disabled={
+                  name.length === 0 ||
+                  message.length === 0 ||
+                  phone.length === 0 ||
+                  email.length === 0
+                }
+                className={classes.sendButton}
+                onClick={() => setOpen(true)}
+              >
+                Send Message{" "}
+                <img
+                  src={airplane}
+                  style={{ marginLeft: "1em" }}
+                  alt="paper airplane"
+                />
+              </Button>
+            </Grid>
+          </Grid>
+        </DialogContent>
+      </Dialog>
       <Grid
         item
         container
