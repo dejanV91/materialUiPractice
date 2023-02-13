@@ -114,6 +114,16 @@ export default function Contact(props) {
     }
   };
 
+  const onConfirm = () => {
+    setOpen(true);
+    axios
+      .get(
+        "https://us-central1-material---ui-9e20e.cloudfunctions.net/sendMail"
+      )
+      .then((res) => console.log(res))
+      .catch((error) => console.log(error));
+  };
+
   return (
     <Grid container direction="row">
       <Grid
@@ -246,7 +256,7 @@ export default function Contact(props) {
                 email.length === 0
               }
               className={classes.sendButton}
-              onClick={() => setOpen(true)}
+              onClick={onConfirm}
             >
               Send Message{" "}
               <img
