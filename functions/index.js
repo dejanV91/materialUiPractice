@@ -19,15 +19,3 @@ let mailOptions = {
 
 // Create and deploy your first functions
 // https://firebase.google.com/docs/functions/get-started
-
-exports.sendMail = functions.https.onRequest((request, response) => {
-  cors(request, response, () => {
-    transporet.sendMail(mailOptions, (error) => {
-      if (error) {
-        response.send(error);
-      } else {
-        response.send("Message sent successfully");
-      }
-    });
-  });
-});
